@@ -1,0 +1,564 @@
+<DatabaseTemplate name="dbca mydb" description="" version="19.0.0.0.0">
+   <CommonAttributes>
+      <option name="OMS" value="true" includeInPDBs="true"/>
+      <option name="JSERVER" value="true" includeInPDBs="true"/>
+      <option name="SPATIAL" value="true" includeInPDBs="true"/>
+      <option name="IMEDIA" value="true" includeInPDBs="true"/>
+      <option name="ORACLE_TEXT" value="true" includeInPDBs="true">
+         <tablespace id="SYSAUX"/>
+      </option>
+      <option name="SAMPLE_SCHEMA" value="true" includeInPDBs="false"/>
+      <option name="CWMLITE" value="true" includeInPDBs="true">
+         <tablespace id="SYSAUX"/>
+      </option>
+      <option name="APEX" value="false" includeInPDBs="false"/>
+      <option name="DV" value="true" includeInPDBs="true">
+         <tablespace id="SYSAUX"/>
+      </option>
+   </CommonAttributes>
+   <Variables/>
+   <CustomScripts Execute="false"/>
+   <PluggableDatabases>
+      <PluggableDatabase pdb_name="PDB$SEED" con_id="2" pdb_dbid="3010760916"/>
+      <PluggableDatabase pdb_name="PLORCL" con_id="3" pdb_dbid="2013770918"/>
+   </PluggableDatabases>
+   <InitParamAttributes>
+      <InitParams>
+         <initParam name="db_create_file_dest" value="/u01/app/oracle/oradata"/>
+         <initParam name="db_name" value=""/>
+         <initParam name="db_domain" value=""/>
+         <initParam name="dispatchers" value="(PROTOCOL=TCP) (SERVICE={SID}XDB)"/>
+         <initParam name="audit_file_dest" value="/u01/app/oracle/admin/orcl/adump"/>
+         <initParam name="compatible" value="19.0.0"/>
+         <initParam name="remote_login_passwordfile" value="EXCLUSIVE"/>
+         <initParam name="sga_target" value="4966055936"/>
+         <initParam name="processes" value="320"/>
+         <initParam name="undo_tablespace" value="UNDOTBS1"/>
+         <initParam name="control_files" value=""/>
+         <initParam name="diagnostic_dest" value="/u01/app/oracle"/>
+         <initParam name="enable_pluggable_database" value="TRUE"/>
+         <initParam name="db_recovery_file_dest" value="/u01/app/oracle/fast_recovery_area"/>
+         <initParam name="audit_trail" value="DB"/>
+         <initParam name="db_block_size" value="8192"/>
+         <initParam name="open_cursors" value="300"/>
+         <initParam name="db_recovery_file_dest_size" value="13350469632"/>
+         <initParam name="pga_aggregate_target" value="1650458624"/>
+      </InitParams>
+      <MiscParams>
+         <customSGA>false</customSGA>
+         <characterSet>AL32UTF8</characterSet>
+         <nationalCharacterSet>AL16UTF16</nationalCharacterSet>
+         <archiveLogMode>false</archiveLogMode>
+         <initParamFileName>{ORACLE_BASE}/admin/{DB_UNIQUE_NAME}/pfile/init.ora</initParamFileName>
+      </MiscParams>
+      <SPfile useSPFile="true">/u01/app/oracle/product/19.3.0/dbhome_1/dbs/spfile{SID}.ora</SPfile>
+   </InitParamAttributes>
+   <StorageAttributes>
+      <ControlfileAttributes id="Controlfile">
+         <maxDatafiles>1024</maxDatafiles>
+         <maxLogfiles>16</maxLogfiles>
+         <maxLogMembers>3</maxLogMembers>
+         <maxLogHistory>292</maxLogHistory>
+         <maxInstances>8</maxInstances>
+         <image name="o1_mf_j1xg9qq6_.ctl" filepath="/u01/app/oracle/oradata/ORCL/controlfile/"/>
+         <image name="o1_mf_j1xg9qs2_.ctl" filepath="/u01/app/oracle/fast_recovery_area/ORCL/controlfile/"/>
+      </ControlfileAttributes>
+      <DatafileAttributes id="/u01/app/oracle/oradata/ORCL/BAADED80D7145E32E05504BDC1964F13/datafile/o1_mf_sysaux_j1xgtfk6_.dbf" con_id="3">
+         <tablespace>SYSAUX</tablespace>
+         <temporary>false</temporary>
+         <online>true</online>
+         <status>0</status>
+         <size unit="MB">300</size>
+         <reuse>true</reuse>
+         <autoExtend>true</autoExtend>
+         <increment unit="KB">10240</increment>
+         <maxSize unit="MB">32767</maxSize>
+      </DatafileAttributes>
+      <DatafileAttributes id="/u01/app/oracle/oradata/ORCL/BAADED80D7145E32E05504BDC1964F13/datafile/o1_mf_system_j1xgtfjz_.dbf" con_id="3">
+         <tablespace>SYSTEM</tablespace>
+         <temporary>false</temporary>
+         <online>true</online>
+         <status>0</status>
+         <size unit="MB">260</size>
+         <reuse>true</reuse>
+         <autoExtend>true</autoExtend>
+         <increment unit="KB">10240</increment>
+         <maxSize unit="MB">32767</maxSize>
+      </DatafileAttributes>
+      <DatafileAttributes id="/u01/app/oracle/oradata/ORCL/BAADED80D7145E32E05504BDC1964F13/datafile/o1_mf_temp_j1xgtfk8_.dbf" con_id="3">
+         <tablespace>TEMP</tablespace>
+         <temporary>true</temporary>
+         <online>true</online>
+         <status>0</status>
+         <size unit="MB">36</size>
+         <reuse>true</reuse>
+         <autoExtend>true</autoExtend>
+         <increment unit="KB">640</increment>
+         <maxSize unit="MB">32767</maxSize>
+      </DatafileAttributes>
+      <DatafileAttributes id="/u01/app/oracle/oradata/ORCL/BAADED80D7145E32E05504BDC1964F13/datafile/o1_mf_undotbs1_j1xgtfk7_.dbf" con_id="3">
+         <tablespace>UNDOTBS1</tablespace>
+         <temporary>false</temporary>
+         <online>true</online>
+         <status>0</status>
+         <size unit="MB">100</size>
+         <reuse>true</reuse>
+         <autoExtend>true</autoExtend>
+         <increment unit="KB">5120</increment>
+         <maxSize unit="MB">32767</maxSize>
+      </DatafileAttributes>
+      <DatafileAttributes id="/u01/app/oracle/oradata/ORCL/BAADED80D7145E32E05504BDC1964F13/datafile/o1_mf_users_j1xgtp5z_.dbf" con_id="3">
+         <tablespace>USERS</tablespace>
+         <temporary>false</temporary>
+         <online>true</online>
+         <status>0</status>
+         <size unit="MB">5</size>
+         <reuse>true</reuse>
+         <autoExtend>true</autoExtend>
+         <increment unit="KB">1280</increment>
+         <maxSize unit="MB">32767</maxSize>
+      </DatafileAttributes>
+      <DatafileAttributes id="/u01/app/oracle/oradata/ORCL/datafile/o1_mf_sysaux_j1xg7q0o_.dbf" con_id="1">
+         <tablespace>SYSAUX</tablespace>
+         <temporary>false</temporary>
+         <online>true</online>
+         <status>0</status>
+         <size unit="MB">480</size>
+         <reuse>true</reuse>
+         <autoExtend>true</autoExtend>
+         <increment unit="KB">10240</increment>
+         <maxSize unit="MB">32767</maxSize>
+      </DatafileAttributes>
+      <DatafileAttributes id="/u01/app/oracle/oradata/ORCL/datafile/o1_mf_sysaux_j1xgbyrs_.dbf" con_id="2">
+         <tablespace>SYSAUX</tablespace>
+         <temporary>false</temporary>
+         <online>true</online>
+         <status>0</status>
+         <size unit="MB">280</size>
+         <reuse>true</reuse>
+         <autoExtend>true</autoExtend>
+         <increment unit="KB">10240</increment>
+         <maxSize unit="MB">32767</maxSize>
+      </DatafileAttributes>
+      <DatafileAttributes id="/u01/app/oracle/oradata/ORCL/datafile/o1_mf_system_j1xg5zqd_.dbf" con_id="1">
+         <tablespace>SYSTEM</tablespace>
+         <temporary>false</temporary>
+         <online>true</online>
+         <status>0</status>
+         <size unit="MB">890</size>
+         <reuse>true</reuse>
+         <autoExtend>true</autoExtend>
+         <increment unit="KB">10240</increment>
+         <maxSize unit="MB">32767</maxSize>
+      </DatafileAttributes>
+      <DatafileAttributes id="/u01/app/oracle/oradata/ORCL/datafile/o1_mf_system_j1xgbyrn_.dbf" con_id="2">
+         <tablespace>SYSTEM</tablespace>
+         <temporary>false</temporary>
+         <online>true</online>
+         <status>0</status>
+         <size unit="MB">260</size>
+         <reuse>true</reuse>
+         <autoExtend>true</autoExtend>
+         <increment unit="KB">10240</increment>
+         <maxSize unit="MB">32767</maxSize>
+      </DatafileAttributes>
+      <DatafileAttributes id="/u01/app/oracle/oradata/ORCL/datafile/o1_mf_temp_j1xgb7rs_.tmp" con_id="1">
+         <tablespace>TEMP</tablespace>
+         <temporary>true</temporary>
+         <online>true</online>
+         <status>0</status>
+         <size unit="MB">32</size>
+         <reuse>true</reuse>
+         <autoExtend>true</autoExtend>
+         <increment unit="KB">640</increment>
+         <maxSize unit="MB">32767</maxSize>
+      </DatafileAttributes>
+      <DatafileAttributes id="/u01/app/oracle/oradata/ORCL/datafile/o1_mf_undotbs1_j1xg8j5c_.dbf" con_id="1">
+         <tablespace>UNDOTBS1</tablespace>
+         <temporary>false</temporary>
+         <online>true</online>
+         <status>0</status>
+         <size unit="MB">65</size>
+         <reuse>true</reuse>
+         <autoExtend>true</autoExtend>
+         <increment unit="KB">5120</increment>
+         <maxSize unit="MB">32767</maxSize>
+      </DatafileAttributes>
+      <DatafileAttributes id="/u01/app/oracle/oradata/ORCL/datafile/o1_mf_undotbs1_j1xgbyrw_.dbf" con_id="2">
+         <tablespace>UNDOTBS1</tablespace>
+         <temporary>false</temporary>
+         <online>true</online>
+         <status>0</status>
+         <size unit="MB">100</size>
+         <reuse>true</reuse>
+         <autoExtend>true</autoExtend>
+         <increment unit="KB">5120</increment>
+         <maxSize unit="MB">32767</maxSize>
+      </DatafileAttributes>
+      <DatafileAttributes id="/u01/app/oracle/oradata/ORCL/datafile/o1_mf_users_j1xg8k8h_.dbf" con_id="1">
+         <tablespace>USERS</tablespace>
+         <temporary>false</temporary>
+         <online>true</online>
+         <status>0</status>
+         <size unit="MB">5</size>
+         <reuse>true</reuse>
+         <autoExtend>true</autoExtend>
+         <increment unit="KB">1280</increment>
+         <maxSize unit="MB">32767</maxSize>
+      </DatafileAttributes>
+      <DatafileAttributes id="/u01/app/oracle/oradata/ORCL/datafile/temp012021-02-06_15-45-00-138-PM.dbf" con_id="2">
+         <tablespace>TEMP</tablespace>
+         <temporary>true</temporary>
+         <online>true</online>
+         <status>0</status>
+         <size unit="MB">36</size>
+         <reuse>true</reuse>
+         <autoExtend>true</autoExtend>
+         <increment unit="KB">640</increment>
+         <maxSize unit="MB">32767</maxSize>
+      </DatafileAttributes>
+      <TablespaceAttributes id="SYSAUX" con_id="1">
+         <temporary>false</temporary>
+         <defaultTemp>false</defaultTemp>
+         <undo>false</undo>
+         <local>true</local>
+         <blockSize>8192</blockSize>
+         <allocation>1</allocation>
+         <uniAllocSize unit="KB">-1</uniAllocSize>
+         <initSize unit="KB">64</initSize>
+         <increment unit="KB">0</increment>
+         <incrementPercent>0</incrementPercent>
+         <minExtends>1</minExtends>
+         <maxExtends>2147483645</maxExtends>
+         <minExtendsSize unit="KB">64</minExtendsSize>
+         <logging>true</logging>
+         <recoverable>false</recoverable>
+         <maxFreeSpace>0</maxFreeSpace>
+         <autoSegmentMgmt>true</autoSegmentMgmt>
+         <bigfile>false</bigfile>
+         <datafilesList>
+            <TablespaceDatafileAttributes id="/u01/app/oracle/oradata/ORCL/datafile/o1_mf_sysaux_j1xg7q0o_.dbf"/>
+         </datafilesList>
+      </TablespaceAttributes>
+      <TablespaceAttributes id="SYSTEM" con_id="1">
+         <temporary>false</temporary>
+         <defaultTemp>false</defaultTemp>
+         <undo>false</undo>
+         <local>true</local>
+         <blockSize>8192</blockSize>
+         <allocation>1</allocation>
+         <uniAllocSize unit="KB">-1</uniAllocSize>
+         <initSize unit="KB">64</initSize>
+         <increment unit="KB">0</increment>
+         <incrementPercent>0</incrementPercent>
+         <minExtends>1</minExtends>
+         <maxExtends>2147483645</maxExtends>
+         <minExtendsSize unit="KB">64</minExtendsSize>
+         <logging>true</logging>
+         <recoverable>false</recoverable>
+         <maxFreeSpace>0</maxFreeSpace>
+         <autoSegmentMgmt>false</autoSegmentMgmt>
+         <bigfile>false</bigfile>
+         <datafilesList>
+            <TablespaceDatafileAttributes id="/u01/app/oracle/oradata/ORCL/datafile/o1_mf_system_j1xg5zqd_.dbf"/>
+         </datafilesList>
+      </TablespaceAttributes>
+      <TablespaceAttributes id="TEMP" con_id="1">
+         <temporary>true</temporary>
+         <defaultTemp>true</defaultTemp>
+         <undo>false</undo>
+         <local>true</local>
+         <blockSize>8192</blockSize>
+         <allocation>2</allocation>
+         <uniAllocSize unit="KB">1024</uniAllocSize>
+         <initSize unit="KB">1024</initSize>
+         <increment unit="KB">1024</increment>
+         <incrementPercent>0</incrementPercent>
+         <minExtends>1</minExtends>
+         <maxExtends>-1</maxExtends>
+         <minExtendsSize unit="KB">1024</minExtendsSize>
+         <logging>false</logging>
+         <recoverable>false</recoverable>
+         <maxFreeSpace>0</maxFreeSpace>
+         <autoSegmentMgmt>false</autoSegmentMgmt>
+         <bigfile>false</bigfile>
+         <datafilesList>
+            <TablespaceDatafileAttributes id="/u01/app/oracle/oradata/ORCL/datafile/o1_mf_temp_j1xgb7rs_.tmp"/>
+         </datafilesList>
+      </TablespaceAttributes>
+      <TablespaceAttributes id="UNDOTBS1" con_id="1">
+         <temporary>false</temporary>
+         <defaultTemp>false</defaultTemp>
+         <undo>true</undo>
+         <local>true</local>
+         <blockSize>8192</blockSize>
+         <allocation>1</allocation>
+         <uniAllocSize unit="KB">-1</uniAllocSize>
+         <initSize unit="KB">64</initSize>
+         <increment unit="KB">0</increment>
+         <incrementPercent>0</incrementPercent>
+         <minExtends>1</minExtends>
+         <maxExtends>2147483645</maxExtends>
+         <minExtendsSize unit="KB">64</minExtendsSize>
+         <logging>true</logging>
+         <recoverable>false</recoverable>
+         <maxFreeSpace>0</maxFreeSpace>
+         <autoSegmentMgmt>false</autoSegmentMgmt>
+         <bigfile>false</bigfile>
+         <datafilesList>
+            <TablespaceDatafileAttributes id="/u01/app/oracle/oradata/ORCL/datafile/o1_mf_undotbs1_j1xg8j5c_.dbf"/>
+         </datafilesList>
+      </TablespaceAttributes>
+      <TablespaceAttributes id="USERS" con_id="1">
+         <temporary>false</temporary>
+         <defaultTemp>false</defaultTemp>
+         <undo>false</undo>
+         <local>true</local>
+         <blockSize>8192</blockSize>
+         <allocation>1</allocation>
+         <uniAllocSize unit="KB">-1</uniAllocSize>
+         <initSize unit="KB">64</initSize>
+         <increment unit="KB">0</increment>
+         <incrementPercent>0</incrementPercent>
+         <minExtends>1</minExtends>
+         <maxExtends>2147483645</maxExtends>
+         <minExtendsSize unit="KB">64</minExtendsSize>
+         <logging>true</logging>
+         <recoverable>false</recoverable>
+         <maxFreeSpace>0</maxFreeSpace>
+         <autoSegmentMgmt>true</autoSegmentMgmt>
+         <bigfile>false</bigfile>
+         <datafilesList>
+            <TablespaceDatafileAttributes id="/u01/app/oracle/oradata/ORCL/datafile/o1_mf_users_j1xg8k8h_.dbf"/>
+         </datafilesList>
+      </TablespaceAttributes>
+      <TablespaceAttributes id="SYSAUX" con_id="2">
+         <temporary>false</temporary>
+         <defaultTemp>false</defaultTemp>
+         <undo>false</undo>
+         <local>true</local>
+         <blockSize>8192</blockSize>
+         <allocation>1</allocation>
+         <uniAllocSize unit="KB">-1</uniAllocSize>
+         <initSize unit="KB">64</initSize>
+         <increment unit="KB">0</increment>
+         <incrementPercent>0</incrementPercent>
+         <minExtends>1</minExtends>
+         <maxExtends>2147483645</maxExtends>
+         <minExtendsSize unit="KB">64</minExtendsSize>
+         <logging>true</logging>
+         <recoverable>false</recoverable>
+         <maxFreeSpace>0</maxFreeSpace>
+         <autoSegmentMgmt>true</autoSegmentMgmt>
+         <bigfile>false</bigfile>
+         <datafilesList>
+            <TablespaceDatafileAttributes id="/u01/app/oracle/oradata/ORCL/datafile/o1_mf_sysaux_j1xgbyrs_.dbf"/>
+         </datafilesList>
+      </TablespaceAttributes>
+      <TablespaceAttributes id="SYSTEM" con_id="2">
+         <temporary>false</temporary>
+         <defaultTemp>false</defaultTemp>
+         <undo>false</undo>
+         <local>true</local>
+         <blockSize>8192</blockSize>
+         <allocation>1</allocation>
+         <uniAllocSize unit="KB">-1</uniAllocSize>
+         <initSize unit="KB">64</initSize>
+         <increment unit="KB">0</increment>
+         <incrementPercent>0</incrementPercent>
+         <minExtends>1</minExtends>
+         <maxExtends>2147483645</maxExtends>
+         <minExtendsSize unit="KB">64</minExtendsSize>
+         <logging>true</logging>
+         <recoverable>false</recoverable>
+         <maxFreeSpace>0</maxFreeSpace>
+         <autoSegmentMgmt>false</autoSegmentMgmt>
+         <bigfile>false</bigfile>
+         <datafilesList>
+            <TablespaceDatafileAttributes id="/u01/app/oracle/oradata/ORCL/datafile/o1_mf_system_j1xgbyrn_.dbf"/>
+         </datafilesList>
+      </TablespaceAttributes>
+      <TablespaceAttributes id="TEMP" con_id="2">
+         <temporary>true</temporary>
+         <defaultTemp>true</defaultTemp>
+         <undo>false</undo>
+         <local>true</local>
+         <blockSize>8192</blockSize>
+         <allocation>2</allocation>
+         <uniAllocSize unit="KB">1024</uniAllocSize>
+         <initSize unit="KB">1024</initSize>
+         <increment unit="KB">1024</increment>
+         <incrementPercent>0</incrementPercent>
+         <minExtends>1</minExtends>
+         <maxExtends>-1</maxExtends>
+         <minExtendsSize unit="KB">1024</minExtendsSize>
+         <logging>false</logging>
+         <recoverable>false</recoverable>
+         <maxFreeSpace>0</maxFreeSpace>
+         <autoSegmentMgmt>false</autoSegmentMgmt>
+         <bigfile>false</bigfile>
+         <datafilesList>
+            <TablespaceDatafileAttributes id="/u01/app/oracle/oradata/ORCL/datafile/temp012021-02-06_15-45-00-138-PM.dbf"/>
+         </datafilesList>
+      </TablespaceAttributes>
+      <TablespaceAttributes id="UNDOTBS1" con_id="2">
+         <temporary>false</temporary>
+         <defaultTemp>false</defaultTemp>
+         <undo>true</undo>
+         <local>true</local>
+         <blockSize>8192</blockSize>
+         <allocation>1</allocation>
+         <uniAllocSize unit="KB">-1</uniAllocSize>
+         <initSize unit="KB">64</initSize>
+         <increment unit="KB">0</increment>
+         <incrementPercent>0</incrementPercent>
+         <minExtends>1</minExtends>
+         <maxExtends>2147483645</maxExtends>
+         <minExtendsSize unit="KB">64</minExtendsSize>
+         <logging>true</logging>
+         <recoverable>false</recoverable>
+         <maxFreeSpace>0</maxFreeSpace>
+         <autoSegmentMgmt>false</autoSegmentMgmt>
+         <bigfile>false</bigfile>
+         <datafilesList>
+            <TablespaceDatafileAttributes id="/u01/app/oracle/oradata/ORCL/datafile/o1_mf_undotbs1_j1xgbyrw_.dbf"/>
+         </datafilesList>
+      </TablespaceAttributes>
+      <TablespaceAttributes id="SYSAUX" con_id="3">
+         <temporary>false</temporary>
+         <defaultTemp>false</defaultTemp>
+         <undo>false</undo>
+         <local>true</local>
+         <blockSize>8192</blockSize>
+         <allocation>1</allocation>
+         <uniAllocSize unit="KB">-1</uniAllocSize>
+         <initSize unit="KB">64</initSize>
+         <increment unit="KB">0</increment>
+         <incrementPercent>0</incrementPercent>
+         <minExtends>1</minExtends>
+         <maxExtends>2147483645</maxExtends>
+         <minExtendsSize unit="KB">64</minExtendsSize>
+         <logging>true</logging>
+         <recoverable>false</recoverable>
+         <maxFreeSpace>0</maxFreeSpace>
+         <autoSegmentMgmt>true</autoSegmentMgmt>
+         <bigfile>false</bigfile>
+         <datafilesList>
+            <TablespaceDatafileAttributes id="/u01/app/oracle/oradata/ORCL/BAADED80D7145E32E05504BDC1964F13/datafile/o1_mf_sysaux_j1xgtfk6_.dbf"/>
+         </datafilesList>
+      </TablespaceAttributes>
+      <TablespaceAttributes id="SYSTEM" con_id="3">
+         <temporary>false</temporary>
+         <defaultTemp>false</defaultTemp>
+         <undo>false</undo>
+         <local>true</local>
+         <blockSize>8192</blockSize>
+         <allocation>1</allocation>
+         <uniAllocSize unit="KB">-1</uniAllocSize>
+         <initSize unit="KB">64</initSize>
+         <increment unit="KB">0</increment>
+         <incrementPercent>0</incrementPercent>
+         <minExtends>1</minExtends>
+         <maxExtends>2147483645</maxExtends>
+         <minExtendsSize unit="KB">64</minExtendsSize>
+         <logging>true</logging>
+         <recoverable>false</recoverable>
+         <maxFreeSpace>0</maxFreeSpace>
+         <autoSegmentMgmt>false</autoSegmentMgmt>
+         <bigfile>false</bigfile>
+         <datafilesList>
+            <TablespaceDatafileAttributes id="/u01/app/oracle/oradata/ORCL/BAADED80D7145E32E05504BDC1964F13/datafile/o1_mf_system_j1xgtfjz_.dbf"/>
+         </datafilesList>
+      </TablespaceAttributes>
+      <TablespaceAttributes id="TEMP" con_id="3">
+         <temporary>true</temporary>
+         <defaultTemp>true</defaultTemp>
+         <undo>false</undo>
+         <local>true</local>
+         <blockSize>8192</blockSize>
+         <allocation>2</allocation>
+         <uniAllocSize unit="KB">1024</uniAllocSize>
+         <initSize unit="KB">1024</initSize>
+         <increment unit="KB">1024</increment>
+         <incrementPercent>0</incrementPercent>
+         <minExtends>1</minExtends>
+         <maxExtends>-1</maxExtends>
+         <minExtendsSize unit="KB">1024</minExtendsSize>
+         <logging>false</logging>
+         <recoverable>false</recoverable>
+         <maxFreeSpace>0</maxFreeSpace>
+         <autoSegmentMgmt>false</autoSegmentMgmt>
+         <bigfile>false</bigfile>
+         <datafilesList>
+            <TablespaceDatafileAttributes id="/u01/app/oracle/oradata/ORCL/BAADED80D7145E32E05504BDC1964F13/datafile/o1_mf_temp_j1xgtfk8_.dbf"/>
+         </datafilesList>
+      </TablespaceAttributes>
+      <TablespaceAttributes id="UNDOTBS1" con_id="3">
+         <temporary>false</temporary>
+         <defaultTemp>false</defaultTemp>
+         <undo>true</undo>
+         <local>true</local>
+         <blockSize>8192</blockSize>
+         <allocation>1</allocation>
+         <uniAllocSize unit="KB">-1</uniAllocSize>
+         <initSize unit="KB">64</initSize>
+         <increment unit="KB">0</increment>
+         <incrementPercent>0</incrementPercent>
+         <minExtends>1</minExtends>
+         <maxExtends>2147483645</maxExtends>
+         <minExtendsSize unit="KB">64</minExtendsSize>
+         <logging>true</logging>
+         <recoverable>false</recoverable>
+         <maxFreeSpace>0</maxFreeSpace>
+         <autoSegmentMgmt>false</autoSegmentMgmt>
+         <bigfile>false</bigfile>
+         <datafilesList>
+            <TablespaceDatafileAttributes id="/u01/app/oracle/oradata/ORCL/BAADED80D7145E32E05504BDC1964F13/datafile/o1_mf_undotbs1_j1xgtfk7_.dbf"/>
+         </datafilesList>
+      </TablespaceAttributes>
+      <TablespaceAttributes id="USERS" con_id="3">
+         <temporary>false</temporary>
+         <defaultTemp>false</defaultTemp>
+         <undo>false</undo>
+         <local>true</local>
+         <blockSize>8192</blockSize>
+         <allocation>1</allocation>
+         <uniAllocSize unit="KB">-1</uniAllocSize>
+         <initSize unit="KB">64</initSize>
+         <increment unit="KB">0</increment>
+         <incrementPercent>0</incrementPercent>
+         <minExtends>1</minExtends>
+         <maxExtends>2147483645</maxExtends>
+         <minExtendsSize unit="KB">64</minExtendsSize>
+         <logging>true</logging>
+         <recoverable>false</recoverable>
+         <maxFreeSpace>0</maxFreeSpace>
+         <autoSegmentMgmt>true</autoSegmentMgmt>
+         <bigfile>false</bigfile>
+         <datafilesList>
+            <TablespaceDatafileAttributes id="/u01/app/oracle/oradata/ORCL/BAADED80D7145E32E05504BDC1964F13/datafile/o1_mf_users_j1xgtp5z_.dbf"/>
+         </datafilesList>
+      </TablespaceAttributes>
+      <RedoLogGroupAttributes id="1">
+         <reuse>false</reuse>
+         <fileSize unit="KB">204800</fileSize>
+         <Thread>1</Thread>
+         <member ordinal="0" memberName="o1_mf_1_j1xg9t2n_.log" filepath="/u01/app/oracle/oradata/ORCL/onlinelog/"/>
+         <member ordinal="1" memberName="o1_mf_1_j1xg9td0_.log" filepath="/u01/app/oracle/fast_recovery_area/ORCL/onlinelog/"/>
+      </RedoLogGroupAttributes>
+      <RedoLogGroupAttributes id="2">
+         <reuse>false</reuse>
+         <fileSize unit="KB">204800</fileSize>
+         <Thread>1</Thread>
+         <member ordinal="0" memberName="o1_mf_2_j1xg9t33_.log" filepath="/u01/app/oracle/oradata/ORCL/onlinelog/"/>
+         <member ordinal="1" memberName="o1_mf_2_j1xg9tbt_.log" filepath="/u01/app/oracle/fast_recovery_area/ORCL/onlinelog/"/>
+      </RedoLogGroupAttributes>
+      <RedoLogGroupAttributes id="3">
+         <reuse>false</reuse>
+         <fileSize unit="KB">204800</fileSize>
+         <Thread>1</Thread>
+         <member ordinal="0" memberName="o1_mf_3_j1xg9t3q_.log" filepath="/u01/app/oracle/oradata/ORCL/onlinelog/"/>
+         <member ordinal="1" memberName="o1_mf_3_j1xg9tbg_.log" filepath="/u01/app/oracle/fast_recovery_area/ORCL/onlinelog/"/>
+      </RedoLogGroupAttributes>
+   </StorageAttributes>
+</DatabaseTemplate>
