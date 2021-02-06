@@ -47,7 +47,7 @@ echo "starting install" >> ~/dbinstall.txt
 echo "install complete" >> ~/dbinstall.txt
 date >> /tmp/myinstall.log
 cd ~
-unzip /software/swingbenchlatest.zip
+unzip -qq /software/swingbenchlatest.zip
 cd swingbench/bin
 
 
