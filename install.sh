@@ -1,10 +1,10 @@
 #!/bin/bash
 set +x
 date >> /tmp/myinstall.log
-yum install -y wget
+yum install -q -y wget smartmontools
 echo "SSM agent" >> /tmp/myinstall.log
 wget https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
-yum install -y amazon-ssm-agent.rpm
+yum install -q -y amazon-ssm-agent.rpm
 systemctl enable amazon-ssm-agent
 systemctl start amazon-ssm-agent
 systemctl status amazon-ssm-agent
@@ -31,8 +31,8 @@ echo "net.core.rmem_default = 262144" >> /etc/sysctl.conf
 echo "net.core.rmem_max = 4194304" >> /etc/sysctl.conf
 echo "net.core.wmem_default = 262144" >> /etc/sysctl.conf
 echo "net.core.wmem_max = 1048586" >> /etc/sysctl.conf
-sysctl -p
-sysctl -a
+sysctl -p > /dev/null
+sysctl -a > /dev/null
 echo "oracle soft nproc 2047" >> /etc/security/limits.conf
 echo "oracle hard nproc 16384" >> /etc/security/limits.conf
 echo "oracle soft nofile 1024" >> /etc/security/limits.conf
@@ -95,20 +95,23 @@ date >> /tmp/myinstall.log
 echo "======= Oracle software" >> /tmp/myinstall.log
 mkdir /software
 cd /software
-wget https://github.com/domgiles/swingbench-public/releases/download/production/swingbenchlatest.zip
+wget -q https://github.com/domgiles/swingbench-public/releases/download/production/swingbenchlatest.zip
 aws s3 cp s3://oracle-swingbench/oracle19c-linux/LINUX.X64_193000_db_home.zip 19c.zip --quiet
-aws s3 cp s3://oracle-swingbench/scripts/dbinstall.sh dbinstall.sh
-aws s3 cp s3://oracle-swingbench/scripts/db_install.rsp db_install.rsp
-aws s3 cp s3://oracle-swingbench/java-linux/jre-8u281-linux-x64.rpm jre-8u281-linux-x64.rpm
-yum install -y jre-8u281-linux-x64.rpm
+aws s3 cp s3://oracle-swingbench/java-linux/jre-8u281-linux-x64.rpm jre-8u281-linux-x64.rpm  --quiet
+yum install -q -y jre-8u281-linux-x64.rpm
 chown oracle.oinstall /software/*
 chmod 755 /software/*.sh
 ls /software >> /tmp/myinstall.log
 date >> /tmp/myinstall.log
-echo "======= Oracle user" >> /tmp/myinstall.log
-sudo -u oracle -- sh -c "/software/oracle-rds/dbinstall.sh"
+echo "======= Oracle dbinstall 1" >> /tmp/myinstall.log
+sudo -u oracle -- sh -c "/software/oracle-rds/dbinstall-1.sh"
 
-echo "======= user data done ....." >> /tmp/myinstall.log
-#/u01/app/oraInventory/orainstRoot.sh
-#echo -e "\n" | /u01/app/oracle/product/19.3.0/dbhome_1/root.sh
+echo "======= dbinstall 1 done ....." >> /tmp/myinstall.log
+echo "======= Oracle root.sh " >> /tmp/myinstall.log
+/u01/app/oraInventory/orainstRoot.sh
+echo -e "\n" | /u01/app/oracle/product/19.3.0/dbhome_1/root.sh
+
+echo "======= Oracle dbinstall 2" >> /tmp/myinstall.log
+sudo -u oracle -- sh -c "/software/oracle-rds/dbinstall-2.sh"
+echo "======= dbinstall 2 done ....." >> /tmp/myinstall.log
 date >> /tmp/myinstall.log

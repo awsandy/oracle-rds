@@ -41,10 +41,10 @@ unzip -oqq /software/19c.zip
 echo "unzipped" >> ~/dbinstall.txt
 date >> /tmp/myinstall.log
 export _JAVA_OPTIONS='-Dsun.java2d.xrender=false -Dawt.useSystemAAFontSettings=none'
-echo "starting install" >> ~/dbinstall.txt
-#./runInstaller -executePrereqs -silent -responseFile /software/db_install.rsp 
-#./runInstaller -silent -ignorePrereqFailure -responseFile /software/db_install.rsp >> ~/dbinstall.txt
-echo "install complete" >> ~/dbinstall.txt
+echo "starting Oralce runInstaller install" >> ~/dbinstall.txt
+#./runInstaller -executePrereqs -silent -responseFile /software/oracle-rds/db_install_swonly.rsp 
+./runInstaller -silent -ignorePrereqFailure -responseFile /software/oracle-rds/db_install_swonly.rsp >> ~/dbinstall.txt
+echo "runInstaller complete" >> ~/dbinstall.txt
 date >> /tmp/myinstall.log
 cd ~
 unzip -qq /software/swingbenchlatest.zip
