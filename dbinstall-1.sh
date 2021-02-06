@@ -46,11 +46,8 @@ echo "starting Oralce runInstaller install" >> ~/dbinstall.txt
 ./runInstaller -silent -ignorePrereqFailure -responseFile /software/oracle-rds/db_install_swonly.rsp >> ~/dbinstall.txt
 echo "runInstaller complete" >> ~/dbinstall.txt
 date >> /tmp/myinstall.log
-cd ~
-unzip -qq /software/swingbenchlatest.zip
-cd swingbench/bin
-
-
-echo "listener" >> ~/dbinstall.txt
-#lsnrctl start
+which sqlplus > /dev/null
+if [ $? -eq 0 ]; then
+    echo "*** sqlplus verified *** " >> ~/dbinstall.txt
+fi
 echo "dbinstall done" >> ~/dbinstall.txt

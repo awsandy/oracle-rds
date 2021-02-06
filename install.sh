@@ -92,7 +92,7 @@ mkdir -p /u02/oradata
 chown -R oracle:oinstall /u01 /u02
 chmod -R 775 /u01 /u02
 date >> /tmp/myinstall.log
-echo "======= Oracle software" >> /tmp/myinstall.log
+echo "======= Oracle software get to /software" >> /tmp/myinstall.log
 mkdir /software
 cd /software
 wget -q https://github.com/domgiles/swingbench-public/releases/download/production/swingbenchlatest.zip
