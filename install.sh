@@ -105,8 +105,7 @@ chmod 755 /software/*.sh
 ls /software >> /tmp/myinstall.log
 date >> /tmp/myinstall.log
 echo "Oracle user" >> /tmp/myinstall.log
-sudo -u oracle -- sh -c "/software/dbinstall.sh"
-
+sudo -u oracle -- sh -c "/software/oracle-rds/dbinstall.sh"
 
 echo "user data done ....." >> /tmp/myinstall.log
 /u01/app/oraInventory/orainstRoot.sh
