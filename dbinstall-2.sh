@@ -3,7 +3,7 @@ cd ~
 export ORACLE_SID=orcl
 
 echo "Starting silent dbca" >> ~/dbinstall.txt
-$ORACLE_HOME/bin/dbca -silent -responseFile /software/oracle-rds/dbca_orcl-1.rcp
+$ORACLE_HOME/bin/dbca -silent -responseFile /software/oracle-rds/dbca_orcl-1.rsp
 echo "Finished silent dbca" >> ~/dbinstall.txt
 echo "unpacking swingbench" >> ~/dbinstall.txt
 cd ~
@@ -11,7 +11,7 @@ unzip -qq /software/swingbenchlatest.zip
 cd swingbench/bin
 
 echo "Opening db" >> ~/dbinstall.txt
-echo "startup mount" | sqlplus / as sysdba >> ~/dbinstall.txt
+echo "startup mount;" | sqlplus / as sysdba >> ~/dbinstall.txt
 echo "alter database open;" | sqlplus / as sysdba >> ~/dbinstall.txt
 echo "ALTER PLUGGABLE DATABASE plorcl OPEN READ WRITE;" | sqlplus / as sysdba >> ~/dbinstall.txt
 echo "CREATE TEMPORARY TABLESPACE temp2 TEMPFILE 'temp2.dbf' SIZE 2000m;" | sqlplus / as sysdba

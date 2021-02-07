@@ -230,7 +230,7 @@ templateName=/u01/app/oracle/product/19.3.0/dbhome_1/assistants/dbca/templates/G
 # Default value : None
 # Mandatory     : Yes
 #-----------------------------------------------------------------------------
-sysPassword=L!nuxpassword0182
+sysPassword=manager
 
 #-----------------------------------------------------------------------------
 # Name          : systemPassword
@@ -240,7 +240,7 @@ sysPassword=L!nuxpassword0182
 # Default value : None
 # Mandatory     : Yes
 #-----------------------------------------------------------------------------
-systemPassword= L!nuxpassword0182
+systemPassword=manager
 
 #-----------------------------------------------------------------------------
 # Name          : serviceUserPassword
