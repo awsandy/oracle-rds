@@ -44,6 +44,9 @@ export _JAVA_OPTIONS='-Dsun.java2d.xrender=false -Dawt.useSystemAAFontSettings=n
 echo "starting Oralce runInstaller install" >> ~/dbinstall.txt
 #./runInstaller -executePrereqs -silent -responseFile /software/oracle-rds/db_install_swonly.rsp 
 ./runInstaller -silent -ignorePrereqFailure -responseFile /software/oracle-rds/db_install_swonly.rsp >> ~/dbinstall.txt
+if [ $? -ne 0 ]; then
+    echo "runInstaller none zero exit code " >> ~/dbinstall.txt
+fi
 echo "runInstaller complete" >> ~/dbinstall.txt
 date >> /tmp/myinstall.log
 which sqlplus > /dev/null

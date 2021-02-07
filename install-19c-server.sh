@@ -55,7 +55,7 @@ date >> /tmp/myinstall.log
 echo "======= X11" >> /tmp/myinstall.log
 #yum install -y xorg-x11-server-Xorg xorg-x11-xauth xorg-x11-apps
 #yum install "@X Window System" xorg-x11-xauth xorg-x11-fonts-* xorg-x11-utils –y
-rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+rpm -Uqh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 #yum groupinstall -y "Xfce"
 yum groupinstall -q -y 'X Window System' 'GNOME'
 systemctl set-default graphical.target
@@ -92,12 +92,13 @@ mkdir -p /u02/oradata
 chown -R oracle:oinstall /u01 /u02
 chmod -R 775 /u01 /u02
 date >> /tmp/myinstall.log
-echo "======= Oracle software get to /software" >> /tmp/myinstall.log
+echo "======= Oracle software download to /software" >> /tmp/myinstall.log
 mkdir /software
 cd /software
 wget -q https://github.com/domgiles/swingbench-public/releases/download/production/swingbenchlatest.zip
 aws s3 cp s3://oracle-swingbench/oracle19c-linux/LINUX.X64_193000_db_home.zip 19c.zip --quiet
 aws s3 cp s3://oracle-swingbench/java-linux/jre-8u281-linux-x64.rpm jre-8u281-linux-x64.rpm  --quiet
+echo "======= JRE v8 SE" >> /tmp/myinstall.log
 yum install -q -y jre-8u281-linux-x64.rpm
 chown oracle.oinstall /software/*
 chmod 755 /software/*.sh
