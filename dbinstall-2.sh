@@ -52,7 +52,7 @@ if [ $? -ne 0 ]; then
     echo "ERROR:  oewizard none zero exit code "
 fi
 # 1 thread 2m 19 - 2 threads 3m 52 - 4 threads 2m 42
- echo "Finished oewizard"
+echo "Finished oewizard"
 date
 # inflate data
 #./sbutil -u soe -p soe  -cs //localhost/plorcl -soe parallel 12 -dup 4
