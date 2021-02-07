@@ -159,7 +159,7 @@ pqCardinality=
 # Default value : false
 # Mandatory     : No
 #-----------------------------------------------------------------------------
-createAsContainerDatabase=true
+createAsContainerDatabase=
 
 #-----------------------------------------------------------------------------
 # Name          : numberOfPDBs
@@ -169,7 +169,7 @@ createAsContainerDatabase=true
 # Default value : 0
 # Mandatory     : No
 #-----------------------------------------------------------------------------
-numberOfPDBs=1
+numberOfPDBs=
 
 #-----------------------------------------------------------------------------
 # Name          : pdbName 
@@ -179,7 +179,7 @@ numberOfPDBs=1
 # Default value : None
 # Mandatory     : No
 #-----------------------------------------------------------------------------
-pdbName=plorcl
+pdbName=
 
 #-----------------------------------------------------------------------------
 # Name          : useLocalUndoForPDBs 
@@ -189,7 +189,7 @@ pdbName=plorcl
 # Default value : TRUE
 # Mandatory     : No
 #-----------------------------------------------------------------------------
-useLocalUndoForPDBs=true
+useLocalUndoForPDBs=
 
 #-----------------------------------------------------------------------------
 # Name          : pdbAdminPassword

@@ -115,7 +115,7 @@ oracle.install.db.OSRACDBA_GROUP=dba
 #
 # If this option is selected, password should be specified on the console.
 #-------------------------------------------------------------------------------------------------------
-oracle.install.db.rootconfig.executeRootScript=false
+oracle.install.db.rootconfig.executeRootScript=true
 
 #--------------------------------------------------------------------------------------
 # Specify the configuration method to be used for automatic root script execution.
@@ -124,7 +124,7 @@ oracle.install.db.rootconfig.executeRootScript=false
 #   - ROOT
 #   - SUDO
 #--------------------------------------------------------------------------------------
-oracle.install.db.rootconfig.configMethod=
+oracle.install.db.rootconfig.configMethod=ROOT
 #--------------------------------------------------------------------------------------
 # Specify the absolute path of the sudo program.
 #

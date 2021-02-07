@@ -14,7 +14,7 @@ cd swingbench/bin
 echo "Opening db" >> ~/dbinstall.txt
 echo "startup mount;" | sqlplus / as sysdba >> ~/dbinstall.txt
 echo "alter database open;" | sqlplus / as sysdba >> ~/dbinstall.txt
-echo "ALTER PLUGGABLE DATABASE plorcl OPEN READ WRITE;" | sqlplus / as sysdba >> ~/dbinstall.txt
+#echo "ALTER PLUGGABLE DATABASE plorcl OPEN READ WRITE;" | sqlplus / as sysdba >> ~/dbinstall.txt
 echo "CREATE TEMPORARY TABLESPACE temp2 TEMPFILE 'temp2.dbf' SIZE 2000m;" | sqlplus / as sysdba
 echo "alter user sys identified by manager;" | sqlplus / as sysdba >> ~/dbinstall.txt
 echo "alter user system identified by manager;" | sqlplus / as sysdba >> ~/dbinstall.txt
@@ -28,7 +28,7 @@ echo "swingbench oewizard" >> ~/dbinstall.txt
 #./oewizard -dbap manager -u soe -p soe -cl -cs //localhost/plorcl -ts SOE -drop
 # create
 cd ~/swingbench/bin
-./oewizard  -dbap manager -u soe -p soe -cl -cs //localhost/plorcl -ts SOE -scale 1 -df /u02/oradata/soe.dbf -create >> ~/dbinstall.txt
+./oewizard  -dbap manager -u soe -p soe -cl -cs //localhost/orcl -ts SOE -scale 1 -df /u02/oradata/soe.dbf -create >> ~/dbinstall.txt
 # 1 thread 2m 19 - 2 threads 3m 52 - 4 threads 2m 42
  
 # inflate data
