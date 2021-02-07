@@ -19,19 +19,20 @@ echo "CREATE TEMPORARY TABLESPACE temp2 TEMPFILE 'temp2.dbf' SIZE 2000m;" | sqlp
 echo "alter user sys identified by manager;" | sqlplus / as sysdba >> ~/dbinstall.txt
 echo "alter user system identified by manager;" | sqlplus / as sysdba >> ~/dbinstall.txt
 echo "ALTER DATABASE DEFAULT TEMPORARY TABLESPACE temp2;" | sqlplus / as sysdba >> ~/dbinstall.txt
-sleep 15
+echo "sleep 30 for lsnrctl" >> ~/dbinstall.txt
+sleep 30
 lsnrctl status >> ~/dbinstall.txt
 
 echo "swingbench oewizard" >> ~/dbinstall.txt
 # drop -cl run in char mode 
 #./oewizard -dbap manager -u soe -p soe -cl -cs //localhost/plorcl -ts SOE -drop
 # create
-
-./oewizard  -dbap manager -u soe -p soe -cl -cs //localhost/plorcl -ts SOE -scale 1 -df /u02/oradata/soe.dbf -create
+cd ~/swingbench/bin
+./oewizard  -dbap manager -u soe -p soe -cl -cs //localhost/plorcl -ts SOE -scale 1 -df /u02/oradata/soe.dbf -create >> ~/dbinstall.txt
 # 1 thread 2m 19 - 2 threads 3m 52 - 4 threads 2m 42
  
 # inflate data
 #./sbutil -u soe -p soe  -cs //localhost/plorcl -soe parallel 12 -dup 4
-echo "listener" >> ~/dbinstall.txt
-#lsnrctl start
+echo "listener status" >> ~/dbinstall.txt
+lsnrctl status >> ~/dbinstall.txt
 echo "dbinstall 2 done" >> ~/dbinstall.txt
