@@ -9,11 +9,11 @@ echo "Starting silent dbca"
 date 
 $ORACLE_HOME/bin/dbca -silent -createDatabase -responseFile /software/oracle-rds/dbca_orcl-1.rsp 
 if [ $? -ne 0 ]; then
-    echo "ERROR:  dbca none zero exit code " 
+    echo "ERROR:  dbca non zero exit code $?" 
 fi
 lsnrctl start
 if [ $? -ne 0 ]; then
-    echo "ERROR:  lsnr none zero exit code " 
+    echo "ERROR:  lsnr non zero exit code $?" 
 fi
 echo "Finished silent dbca" 
 date 
@@ -38,7 +38,7 @@ echo "sleep 180 for lsnrctl"
 sleep 180
 lsnrctl status | grep orcl
 if [ $? -ne 0 ]; then
-    echo "ERROR:  lsnr no orcl in status "
+    echo "ERROR:  lsnr no orcl in status $? "
 fi
 
 echo "swingbench oewizard"
@@ -49,7 +49,7 @@ date
 cd ~/swingbench/bin
 ./oewizard  -dbap manager -u soe -p soe -cl -cs //localhost/orcl -ts SOE -scale 1 -df /u02/oradata/soe.dbf -create
 if [ $? -ne 0 ]; then
-    echo "ERROR:  oewizard none zero exit code "
+    echo "ERROR:  oewizard non zero exit code "
 fi
 # 1 thread 2m 19 - 2 threads 3m 52 - 4 threads 2m 42
 echo "Finished oewizard"

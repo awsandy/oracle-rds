@@ -33,14 +33,24 @@ echo "export CLASSPATH=${ORACLE_HOME}/jlib:${ORACLE_HOME}/rdbms/jlib" >> ~/.bash
 echo "export _JAVA_OPTIONS='-Dsun.java2d.xrender=false  -Dawt.useSystemAAFontSettings=none'" >> ~/.bash_profile
 . ~/.bash_profile
 echo "env done"
-
+cd $ORACLE_HOME
+pwd
+cd /u01/app/oracle/product/19.3.0/dbhome_1
+pwd
+echo "unzip starting"
+date 
+unzip -oqq /software/19c.zip
+echo "unzipped"
+date
+export _JAVA_OPTIONS='-Dsun.java2d.xrender=false -Dawt.useSystemAAFontSettings=none'
+echo "starting Oralce runInstaller install"
 #./runInstaller -executePrereqs -silent -responseFile /software/oracle-rds/db_install_swonly.rsp 
 ./runInstaller -silent -ignorePrereqFailure -responseFile /software/oracle-rds/db_install_swonly.rsp
 if [ $? -ne 0 ]; then
-    echo "runInstaller none zero exit code "
+    echo "runInstaller non-zero exit code ?$"
 fi
 echo "runInstaller complete"
-date >> /tmp/myinstall.log
+date 
 which sqlplus > /dev/null
 if [ $? -eq 0 ]; then
     echo "*** sqlplus verified *** "
