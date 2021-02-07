@@ -48,12 +48,10 @@ unzip -qq awscliv2.zip
 date
 echo "======= X11 mate "
 which  amazon-linux-extras
-amazon-linux-extras install -y mate-desktop1.x
+amazon-linux-extras install -q -y mate-desktop1.x
 echo "PREFERRED=/usr/bin/mate-session" > /etc/sysconfig/desktop
 
-
 rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-
 
 systemctl set-default graphical.target
 echo "======= xrdp"
@@ -82,7 +80,7 @@ ls /software
 echo "======= Oracle clinstall 1" 
 sudo -u oracle -- sh -c "/software/oracle-rds/clinstall-1.sh"
 echo "X11 stuff again ......"
-amazon-linux-extras install -y mate-desktop1.x
+amazon-linux-extras install -q -y mate-desktop1.x
 echo "PREFERRED=/usr/bin/mate-session" > /etc/sysconfig/desktop
 rsp=$(aws ec2 describe-instances --filters "Name=instance-state-name,Values=running" "Name=tag:Oracle,Values=19c" | jq -r .Reservations[].Instances[].PrivateIpAddress)
 echo "Server:  $rsp"
