@@ -45,12 +45,14 @@ unzip -qq awscliv2.zip
 ./aws/install
 
 date
-echo "======= X11"
-#yum install -y xorg-x11-server-Xorg xorg-x11-xauth xorg-x11-apps
-#yum install "@X Window System" xorg-x11-xauth xorg-x11-fonts-* xorg-x11-utils –y
+echo "======= X11 mate "
+amazon-linux-extras install -y mate-desktop1.x
+echo "PREFERRED=/usr/bin/mate-session" > /etc/sysconfig/desktop
+
+
 rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-#yum groupinstall -y "Xfce"
-yum groupinstall -q -y 'X Window System' 'GNOME'
+
+
 systemctl set-default graphical.target
 echo "======= xrdp"
 yum -q -y install xrdp tigervnc-server
@@ -75,5 +77,7 @@ yum install -q -y oracle-instantclient-basic-21.1.0.0.0-1.x86_64.rpm
 chown oracle.oinstall /software/*
 chmod 755 /software/*.sh
 ls /software
+echo "======= Oracle clinstall 1" 
+sudo -u oracle -- sh -c "/software/oracle-rds/clinstall-1.sh"
 date
 
