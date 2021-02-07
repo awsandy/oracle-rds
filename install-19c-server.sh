@@ -56,7 +56,7 @@ echo "======= X11" >> /tmp/myinstall.log
 date >> /tmp/myinstall.log
 #yum install -y xorg-x11-server-Xorg xorg-x11-xauth xorg-x11-apps
 #yum install "@X Window System" xorg-x11-xauth xorg-x11-fonts-* xorg-x11-utils –y
-rpm -Uqh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+rpm -U https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 #yum groupinstall -y "Xfce"
 yum groupinstall -q -y 'X Window System' 'GNOME'
 systemctl set-default graphical.target

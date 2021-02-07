@@ -173,12 +173,12 @@ oracle.install.db.config.starterdb.type=GENERAL_PURPOSE
 #-------------------------------------------------------------------------------
 # Specify the Starter Database Global Database Name. 
 #-------------------------------------------------------------------------------
-oracle.install.db.config.starterdb.globalDBName=orcl
+oracle.install.db.config.starterdb.globalDBName=
 
 #-------------------------------------------------------------------------------
 # Specify the Starter Database SID.
 #-------------------------------------------------------------------------------
-oracle.install.db.config.starterdb.SID=orcl
+oracle.install.db.config.starterdb.SID=
 
 #-------------------------------------------------------------------------------
 # Specify whether the database should be configured as a Container database.
@@ -228,7 +228,7 @@ oracle.install.db.config.starterdb.memoryLimit=
 # The value can be either "true" or "false". If left blank it will be assumed
 # to be "false".
 #-------------------------------------------------------------------------------
-oracle.install.db.config.starterdb.installExampleSchemas=true
+oracle.install.db.config.starterdb.installExampleSchemas=false
 
 ###############################################################################
 #                                                                             #
@@ -247,7 +247,7 @@ oracle.install.db.config.starterdb.installExampleSchemas=true
 # This variable holds the password that is to be used for all schemas in the
 # starter database.
 #-------------------------------------------------------------------------------
-oracle.install.db.config.starterdb.password.ALL=manager
+oracle.install.db.config.starterdb.password.ALL=
 
 #-------------------------------------------------------------------------------
 # Specify the SYS password for the starter database.
