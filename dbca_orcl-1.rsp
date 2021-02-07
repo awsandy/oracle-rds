@@ -200,7 +200,7 @@ useLocalUndoForPDBs=true
 # Mandatory     : No
 #-----------------------------------------------------------------------------
 
-pdbAdminPassword=
+pdbAdminPassword=manager
 
 #-----------------------------------------------------------------------------
 # Name          : nodelist

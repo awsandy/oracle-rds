@@ -3,7 +3,8 @@ cd ~
 export ORACLE_SID=orcl
 
 echo "Starting silent dbca" >> ~/dbinstall.txt
-$ORACLE_HOME/bin/dbca -silent -responseFile /software/oracle-rds/dbca_orcl-1.rsp
+$ORACLE_HOME/bin/dbca -silent -createDatabase -responseFile /software/oracle-rds/dbca_orcl-1.rsp >> ~/dbinstall.txt
+lsnrctl start >> ~/dbinstall.txt
 echo "Finished silent dbca" >> ~/dbinstall.txt
 echo "unpacking swingbench" >> ~/dbinstall.txt
 cd ~
@@ -18,7 +19,8 @@ echo "CREATE TEMPORARY TABLESPACE temp2 TEMPFILE 'temp2.dbf' SIZE 2000m;" | sqlp
 echo "alter user sys identified by manager;" | sqlplus / as sysdba >> ~/dbinstall.txt
 echo "alter user system identified by manager;" | sqlplus / as sysdba >> ~/dbinstall.txt
 echo "ALTER DATABASE DEFAULT TEMPORARY TABLESPACE temp2;" | sqlplus / as sysdba >> ~/dbinstall.txt
-
+sleep 15
+lsnrctl status >> ~/dbinstall.txt
 
 echo "swingbench oewizard" >> ~/dbinstall.txt
 # drop -cl run in char mode 

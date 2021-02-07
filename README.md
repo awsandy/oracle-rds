@@ -12,7 +12,7 @@ CREATE TEMPORARY TABLESPACE temp2 TEMPFILE 'temp2.dbf' SIZE 2000m;
 ALTER DATABASE DEFAULT TEMPORARY TABLESPACE temp2;
 
 
-echo "startup mount;" | sqlplus / as sysdba >> ~/dbinstall.txt
+echo "startup mount;" | sqlplus / as sysdba 
 
 
 ./oewizard  -dbap manager -u soe -p soe -cl -cs //localhost/plorcl -ts SOE -scale 1 -df /u02/oradata/soe.dbf -create
