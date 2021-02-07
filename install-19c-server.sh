@@ -114,4 +114,5 @@ echo -e "\n" | /u01/app/oracle/product/19.3.0/dbhome_1/root.sh
 echo "======= Oracle dbinstall 2" >> /tmp/myinstall.log
 sudo -u oracle -- sh -c "/software/oracle-rds/dbinstall-2.sh"
 echo "======= dbinstall 2 done ....." >> /tmp/myinstall.log
+cat /home/oracle/dbinstall.txt >> /tmp/myinstall.log
 date >> /tmp/myinstall.log
