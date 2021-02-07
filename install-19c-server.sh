@@ -115,4 +115,5 @@ echo "======= Oracle dbinstall 2" >> /tmp/myinstall.log
 sudo -u oracle -- sh -c "/software/oracle-rds/dbinstall-2.sh"
 echo "======= dbinstall 2 done ....." >> /tmp/myinstall.log
 cat /home/oracle/dbinstall.txt >> /tmp/myinstall.log
+echo "======= Finished 19c server install .. ======== " >> /tmp/myinstall.log
 date >> /tmp/myinstall.log
