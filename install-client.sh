@@ -7,9 +7,9 @@ wget https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/
 yum install -q -y amazon-ssm-agent.rpm
 systemctl enable amazon-ssm-agent
 systemctl start amazon-ssm-agent
-systemctl status amazon-ssm-agent
+#systemctl status amazon-ssm-agent
 echo "======= yum compat"
-yum install -q -y binutils.x86_64 compat-libcap1.x86_64 gcc.x86_64 gcc-c++.x86_64 glibc.i686 glibc.x86_64 glibc-devel.i686 glibc-devel.x86_64 ksh compat-libstdc++-33 libaio.i686 libaio.x86_64 libaio-devel.i686 libaio-devel.x86_64 libgcc.i686 libgcc.x86_64 libstdc++.i686 libstdc++.x86_64 libstdc++-devel.i686 libstdc++-devel.x86_64 libXi.i686 libXi.x86_64 libXtst.i686 libXtst.x86_64 make.x86_64 sysstat.x86_64 zip unzip
+yum install -q -y compat-libcap1.x86_64 gcc.x86_64 gcc-c++.x86_64 glibc.i686 glibc.x86_64 glibc-devel.i686 glibc-devel.x86_64 ksh compat-libstdc++-33 libgcc.i686 libstdc++.i686 libstdc++-devel.i686 libstdc++-devel.x86_64 libXi.i686 libXi.x86_64 libXtst.i686 libXtst.x86_64
 firewall-cmd --add-port=3389/tcp --permanent
 systemctl stop firewalld
 systemctl disable firewalld
@@ -46,6 +46,7 @@ unzip -qq awscliv2.zip
 
 date
 echo "======= X11 mate "
+which  amazon-linux-extras
 amazon-linux-extras install -y mate-desktop1.x
 echo "PREFERRED=/usr/bin/mate-session" > /etc/sysconfig/desktop
 
@@ -79,5 +80,8 @@ chmod 755 /software/*.sh
 ls /software
 echo "======= Oracle clinstall 1" 
 sudo -u oracle -- sh -c "/software/oracle-rds/clinstall-1.sh"
+echo "X11 stuff again ......"
+amazon-linux-extras install -y mate-desktop1.x
+echo "PREFERRED=/usr/bin/mate-session" > /etc/sysconfig/desktop
 date
 
