@@ -30,27 +30,27 @@ echo "export LD_LIBRARY_PATH=${ORACLE_HOME}/lib:/lib:/usr/lib" >> ~/.bash_profil
 echo "export CLASSPATH=${ORACLE_HOME}/jlib:${ORACLE_HOME}/rdbms/jlib" >> ~/.bash_profile
 echo "export _JAVA_OPTIONS='-Dsun.java2d.xrender=false  -Dawt.useSystemAAFontSettings=none'" >> ~/.bash_profile
 . ~/.bash_profile
-echo "env done" >> ~/dbinstall.txt
+echo "env done"
 cd $ORACLE_HOME
-pwd >> ~/dbinstall.txt
+pwd
 cd /u01/app/oracle/product/19.3.0/dbhome_1
-pwd >> ~/dbinstall.txt
-echo "unzip starting" >> ~/dbinstall.txt
+pwd
+echo "unzip starting"
 date >> /tmp/myinstall.log
 unzip -oqq /software/19c.zip
-echo "unzipped" >> ~/dbinstall.txt
+echo "unzipped"
 date >> /tmp/myinstall.log
 export _JAVA_OPTIONS='-Dsun.java2d.xrender=false -Dawt.useSystemAAFontSettings=none'
-echo "starting Oralce runInstaller install" >> ~/dbinstall.txt
+echo "starting Oralce runInstaller install"
 #./runInstaller -executePrereqs -silent -responseFile /software/oracle-rds/db_install_swonly.rsp 
-./runInstaller -silent -ignorePrereqFailure -responseFile /software/oracle-rds/db_install_swonly.rsp >> ~/dbinstall.txt
+./runInstaller -silent -ignorePrereqFailure -responseFile /software/oracle-rds/db_install_swonly.rsp
 if [ $? -ne 0 ]; then
-    echo "runInstaller none zero exit code " >> ~/dbinstall.txt
+    echo "runInstaller none zero exit code "
 fi
-echo "runInstaller complete" >> ~/dbinstall.txt
+echo "runInstaller complete"
 date >> /tmp/myinstall.log
 which sqlplus > /dev/null
 if [ $? -eq 0 ]; then
-    echo "*** sqlplus verified *** " >> ~/dbinstall.txt
+    echo "*** sqlplus verified *** "
 fi
-echo "dbinstall done" >> ~/dbinstall.txt
+echo "dbinstall done"
