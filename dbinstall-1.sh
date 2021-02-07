@@ -1,4 +1,6 @@
 # Oracle Settings
+echo "dbinstall 1 start"
+date
 export TMP=/tmp
 export TMPDIR=$TMP
 export ORACLE_HOSTNAME=oracle.local
@@ -53,4 +55,5 @@ which sqlplus > /dev/null
 if [ $? -eq 0 ]; then
     echo "*** sqlplus verified *** "
 fi
-echo "dbinstall done"
+echo "dbinstall 1 done"
+date

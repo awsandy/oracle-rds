@@ -1,7 +1,7 @@
 #!/bin/bash
 . ~/.bash_profile
 echo "dbinstall 2 start"
-echo "**** YO IN HERE ****"
+date
 cd ~
 export ORACLE_SID=orcl
 
@@ -59,3 +59,4 @@ date
 echo "listener status"
 lsnrctl status
 echo "dbinstall 2 done"
+date
