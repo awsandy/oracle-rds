@@ -60,7 +60,9 @@ echo "======= epel rpm"
 rpm -U https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 #yum groupinstall -y "Xfce"
 echo "======= group install gnome"
-yum groupinstall -q -y 'X Window System' 'GNOME'
+#yum groupinstall -q -y 'X Window System' 'GNOME'
+yum groupinstall -y "MATE Desktop"
+echo "PREFERRED=/usr/bin/mate-session" > /etc/sysconfig/desktop
 systemctl set-default graphical.target
 echo "======= xrdp" 
 date 
