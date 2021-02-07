@@ -1,7 +1,7 @@
 #!/bin/bash
 set +x
 date
-yum install -q -y wget smartmontools deltarpm
+yum install -q -y wget smartmontools deltarpm jq nmap
 echo "SSM agent"
 wget https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
 yum install -q -y amazon-ssm-agent.rpm
@@ -19,6 +19,7 @@ hostnamectl set-hostname oracle.local
 groupadd oinstall
 groupadd dba
 useradd -g oinstall -G dba oracle
+usermod -aG wheel oracle
 echo -e "linuxpassword0182\nlinuxpassword0182" | passwd oracle
 echo "fs.aio-max-nr = 1048576" >> /etc/sysctl.conf
 echo "fs.file-max = 6815744" >> /etc/sysctl.conf

@@ -34,5 +34,16 @@ echo "export _JAVA_OPTIONS='-Dsun.java2d.xrender=false  -Dawt.useSystemAAFontSet
 . ~/.bash_profile
 echo "env done"
 
-echo "clinstall 1 done"
+#./runInstaller -executePrereqs -silent -responseFile /software/oracle-rds/db_install_swonly.rsp 
+./runInstaller -silent -ignorePrereqFailure -responseFile /software/oracle-rds/db_install_swonly.rsp
+if [ $? -ne 0 ]; then
+    echo "runInstaller none zero exit code "
+fi
+echo "runInstaller complete"
+date >> /tmp/myinstall.log
+which sqlplus > /dev/null
+if [ $? -eq 0 ]; then
+    echo "*** sqlplus verified *** "
+fi
+echo "dbinstall 1 done"
 date

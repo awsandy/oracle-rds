@@ -1,7 +1,7 @@
 #!/bin/bash
 set +x
 date
-yum install -q -y wget smartmontools deltarpm
+yum install -q -y wget smartmontools deltarpm jq nmap
 echo "SSM agent"
 wget https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
 yum install -q -y amazon-ssm-agent.rpm
@@ -19,6 +19,7 @@ hostnamectl set-hostname client.local
 groupadd oinstall
 groupadd dba
 useradd -g oinstall -G dba oracle
+usermod -aG wheel oracle
 echo -e "linuxpassword0182\nlinuxpassword0182" | passwd oracle
 echo "fs.aio-max-nr = 1048576" >> /etc/sysctl.conf
 echo "fs.file-max = 6815744" >> /etc/sysctl.conf
@@ -83,5 +84,8 @@ sudo -u oracle -- sh -c "/software/oracle-rds/clinstall-1.sh"
 echo "X11 stuff again ......"
 amazon-linux-extras install -y mate-desktop1.x
 echo "PREFERRED=/usr/bin/mate-session" > /etc/sysconfig/desktop
+rsp=$(aws ec2 describe-instances --filters "Name=instance-state-name,Values=running" "Name=tag:Oracle,Values=19c" | jq -r .Reservations[].Instances[].PrivateIpAddress)
+echo "Server:  $rsp"
+echo "$rsp oraclelinux" >> /etc/hosts
 date
 
