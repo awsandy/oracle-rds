@@ -1,15 +1,15 @@
 #!/bin/bash
 set +x
-date >> /tmp/myinstall.log
+date
 yum install -q -y wget smartmontools
-echo "SSM agent" >> /tmp/myinstall.log
+echo "SSM agent"
 wget https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
 yum install -q -y amazon-ssm-agent.rpm
 systemctl enable amazon-ssm-agent
 systemctl start amazon-ssm-agent
 systemctl status amazon-ssm-agent
-echo "======= yum compat" >> /tmp/myinstall.log
-yum install -q -y binutils.x86_64 compat-libcap1.x86_64 gcc.x86_64 gcc-c++.x86_64 glibc.i686 glibc.x86_64 glibc-devel.i686 glibc-devel.x86_64 ksh compat-libstdc++-33 libaio.i686 libaio.x86_64 libaio-devel.i686 libaio-devel.x86_64 libgcc.i686 libgcc.x86_64 libstdc++.i686 libstdc++.x86_64 libstdc++-devel.i686 libstdc++-devel.x86_64 libXi.i686 libXi.x86_64 libXtst.i686 libXtst.x86_64 make.x86_64 sysstat.x86_64 zip unzip
+echo "======= yum compat" 
+yum install -q -y -e 0 binutils.x86_64 compat-libcap1.x86_64 gcc.x86_64 gcc-c++.x86_64 glibc.i686 glibc.x86_64 glibc-devel.i686 glibc-devel.x86_64 ksh compat-libstdc++-33 libaio.i686 libaio.x86_64 libaio-devel.i686 libaio-devel.x86_64 libgcc.i686 libgcc.x86_64 libstdc++.i686 libstdc++.x86_64 libstdc++-devel.i686 libstdc++-devel.x86_64 libXi.i686 libXi.x86_64 libXtst.i686 libXtst.x86_64 make.x86_64 sysstat.x86_64 zip unzip
 firewall-cmd --add-port=3389/tcp --permanent
 systemctl stop firewalld
 systemctl disable firewalld
@@ -53,6 +53,7 @@ swapon /swapfile
 free -h >> /tmp/myinstall.log
 date >> /tmp/myinstall.log
 echo "======= X11" >> /tmp/myinstall.log
+date >> /tmp/myinstall.log
 #yum install -y xorg-x11-server-Xorg xorg-x11-xauth xorg-x11-apps
 #yum install "@X Window System" xorg-x11-xauth xorg-x11-fonts-* xorg-x11-utils –y
 rpm -Uqh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
@@ -60,13 +61,14 @@ rpm -Uqh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 yum groupinstall -q -y 'X Window System' 'GNOME'
 systemctl set-default graphical.target
 echo "======= xrdp" >> /tmp/myinstall.log
+date >> /tmp/myinstall.log
 yum -q -y install xrdp tigervnc-server
 #yum -y install xrdp
 systemctl start xrdp
 systemctl enable xrdp
-netstat -antup | grep xrdp
-date >> /tmp/myinstall.log
+netstat -antup | grep xrdp >> /tmp/myinstall.log
 echo "======= Oracle section" >> /tmp/myinstall.log
+date >> /tmp/myinstall.log
 yum install -y https://yum.oracle.com/repo/OracleLinux/OL7/latest/x86_64/getPackage/oracle-database-preinstall-19c-1.0-1.el7.x86_64.rpm
 #echo "======= xfce4-session" > /home/oracle/.Xclients
 #chown oracle.oinstall /home/oracle/.Xclients
@@ -112,10 +114,10 @@ date >> /tmp/myinstall.log
 echo "======= Manaual Oracle root.sh " >> /tmp/myinstall.log
 /u01/app/oraInventory/orainstRoot.sh
 echo -e "\n" | /u01/app/oracle/product/19.3.0/dbhome_1/root.sh
-echo "======= Oracle dbinstall 2" >> /tmp/myinstall.log
-date >> /tmp/myinstall.log
-sudo -u oracle -- sh -c "/software/oracle-rds/dbinstall-2.sh"
-echo "======= dbinstall 2 done ....." >> /tmp/myinstall.log
+#echo "======= Oracle dbinstall 2" >> /tmp/myinstall.log
+#date >> /tmp/myinstall.log
+#sudo -u oracle -- sh -c "/software/oracle-rds/dbinstall-2.sh"
+#echo "======= dbinstall 2 done ....." >> /tmp/myinstall.log
 date >> /tmp/myinstall.log
 cat /home/oracle/dbinstall.txt >> /tmp/myinstall.log
 echo "======= Finished 19c server install .. at ======== " >> /tmp/myinstall.log
