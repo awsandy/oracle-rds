@@ -39,36 +39,36 @@ echo "oracle soft nofile 1024" >> /etc/security/limits.conf
 echo "oracle hard nofile 65536" >> /etc/security/limits.conf
 echo "oracle soft stack 10240" >> /etc/security/limits.conf
 echo "oracle hard stack 32768" >> /etc/security/limits.conf
-echo "aws cli" >> /tmp/myinstall.log
+echo "======= aws cli" 
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 unzip -qq awscliv2.zip
 ./aws/install
-echo "======= Swap" >> /tmp/myinstall.log
+echo "======= Swap"
 dd if=/dev/zero of=/swapfile bs=1048576 count=8192
 mkswap /swapfile
 chmod 0600 /swapfile
 echo "/swapfile   swap swap  defaults  0 0" >> /etc/fstab
 systemctl daemon-reload
 swapon /swapfile
-free -h >> /tmp/myinstall.log
-date >> /tmp/myinstall.log
-echo "======= X11" >> /tmp/myinstall.log
-date >> /tmp/myinstall.log
+free -h  
+date
+echo "======= X11" 
+date 
 #yum install -y xorg-x11-server-Xorg xorg-x11-xauth xorg-x11-apps
 #yum install "@X Window System" xorg-x11-xauth xorg-x11-fonts-* xorg-x11-utils –y
 rpm -U https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 #yum groupinstall -y "Xfce"
 yum groupinstall -q -y 'X Window System' 'GNOME'
 systemctl set-default graphical.target
-echo "======= xrdp" >> /tmp/myinstall.log
-date >> /tmp/myinstall.log
+echo "======= xrdp" 
+date 
 yum -q -y install xrdp tigervnc-server
 #yum -y install xrdp
 systemctl start xrdp
 systemctl enable xrdp
-netstat -antup | grep xrdp >> /tmp/myinstall.log
-echo "======= Oracle section" >> /tmp/myinstall.log
-date >> /tmp/myinstall.log
+netstat -antup | grep xrdp 
+echo "======= Oracle section" 
+date 
 yum install -y https://yum.oracle.com/repo/OracleLinux/OL7/latest/x86_64/getPackage/oracle-database-preinstall-19c-1.0-1.el7.x86_64.rpm
 #echo "======= xfce4-session" > /home/oracle/.Xclients
 #chown oracle.oinstall /home/oracle/.Xclients
@@ -93,32 +93,31 @@ mkdir -p /u01/app/oracle/product/19.3.0/dbhome_1
 mkdir -p /u02/oradata
 chown -R oracle:oinstall /u01 /u02
 chmod -R 775 /u01 /u02
-date >> /tmp/myinstall.log
-echo "======= Oracle software download to /software" >> /tmp/myinstall.log
+date 
+echo "======= Oracle software download to /software" 
 mkdir /software
 cd /software
 wget -q https://github.com/domgiles/swingbench-public/releases/download/production/swingbenchlatest.zip
 aws s3 cp s3://oracle-swingbench/oracle19c-linux/LINUX.X64_193000_db_home.zip 19c.zip --quiet
 aws s3 cp s3://oracle-swingbench/java-linux/jre-8u281-linux-x64.rpm jre-8u281-linux-x64.rpm  --quiet
-echo "======= JRE v8 SE" >> /tmp/myinstall.log
+echo "======= JRE v8 SE" 
 yum install -q -y jre-8u281-linux-x64.rpm
 chown oracle.oinstall /software/*
 chmod 755 /software/*.sh
-ls /software >> /tmp/myinstall.log
-date >> /tmp/myinstall.log
-echo "======= Oracle dbinstall 1" >> /tmp/myinstall.log
+ls /software 
+date 
+echo "======= Oracle dbinstall 1" 
 sudo -u oracle -- sh -c "/software/oracle-rds/dbinstall-1.sh"
-
-echo "======= dbinstall 1 done ....." >> /tmp/myinstall.log
-date >> /tmp/myinstall.log
-echo "======= Manaual Oracle root.sh " >> /tmp/myinstall.log
+echo "======= dbinstall 1 done ....." 
+date 
+echo "======= Manaual Oracle root.sh " 
 /u01/app/oraInventory/orainstRoot.sh
 echo -e "\n" | /u01/app/oracle/product/19.3.0/dbhome_1/root.sh
-#echo "======= Oracle dbinstall 2" >> /tmp/myinstall.log
-#date >> /tmp/myinstall.log
+#echo "======= Oracle dbinstall 2" 
+#date 
 #sudo -u oracle -- sh -c "/software/oracle-rds/dbinstall-2.sh"
-#echo "======= dbinstall 2 done ....." >> /tmp/myinstall.log
-date >> /tmp/myinstall.log
-cat /home/oracle/dbinstall.txt >> /tmp/myinstall.log
-echo "======= Finished 19c server install .. at ======== " >> /tmp/myinstall.log
-date >> /tmp/myinstall.log
+#echo "======= dbinstall 2 done ....." 
+date 
+cat /home/oracle/dbinstall.txt 
+echo "======= Finished 19c server install .. at ======== "
+date 
