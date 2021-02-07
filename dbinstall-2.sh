@@ -1,4 +1,7 @@
+#!/bin/bash
+. ~/.bash_profile
 echo "dbinstall 2 start" >> ~/dbinstall.txt
+echo "**** YO IN HERE ****"
 cd ~
 export ORACLE_SID=orcl
 
@@ -6,11 +9,11 @@ echo "Starting silent dbca" >> ~/dbinstall.txt
 date >> ~/dbinstall.txt
 $ORACLE_HOME/bin/dbca -silent -createDatabase -responseFile /software/oracle-rds/dbca_orcl-1.rsp >> ~/dbinstall.txt
 if [ $? -ne 0 ]; then
-    echo "dbca none zero exit code " >> ~/dbinstall.txt
+    echo "ERROR:  dbca none zero exit code " >> ~/dbinstall.txt
 fi
 lsnrctl start
 if [ $? -ne 0 ]; then
-    echo "lsnr none zero exit code " >> ~/dbinstall.txt
+    echo "ERROR:  lsnr none zero exit code " >> ~/dbinstall.txt
 fi
 echo "Finished silent dbca" >> ~/dbinstall.txt
 date >> ~/dbinstall.txt
@@ -18,6 +21,7 @@ echo "unpacking swingbench" >> ~/dbinstall.txt
 cd ~
 unzip -qq /software/swingbenchlatest.zip
 cd swingbench/bin
+ls owiz*
 
 echo "Opening db" >> ~/dbinstall.txt
 echo "startup mount;" | sqlplus / as sysdba >> ~/dbinstall.txt
@@ -27,10 +31,15 @@ echo "CREATE TEMPORARY TABLESPACE temp2 TEMPFILE 'temp2.dbf' SIZE 2000m;" | sqlp
 echo "alter user sys identified by manager;" | sqlplus / as sysdba >> ~/dbinstall.txt
 echo "alter user system identified by manager;" | sqlplus / as sysdba >> ~/dbinstall.txt
 echo "ALTER DATABASE DEFAULT TEMPORARY TABLESPACE temp2;" | sqlplus / as sysdba >> ~/dbinstall.txt
-echo "sleep 30 for lsnrctl" >> ~/dbinstall.txt
-sleep 30
-lsnrctl status 
+echo "SELECT * FROM dba_temp_free_space;" | sqlplus / as sysdba >> ~/dbinstall.txt
 
+
+echo "sleep 180 for lsnrctl" >> ~/dbinstall.txt
+sleep 180
+lsnrctl status | grep orcl
+if [ $? -ne 0 ]; then
+    echo "ERROR:  lsnr no orcl in status " >> ~/dbinstall.txt
+fi
 
 echo "swingbench oewizard" >> ~/dbinstall.txt
 date >> ~/dbinstall.txt
@@ -40,7 +49,7 @@ date >> ~/dbinstall.txt
 cd ~/swingbench/bin
 ./oewizard  -dbap manager -u soe -p soe -cl -cs //localhost/orcl -ts SOE -scale 1 -df /u02/oradata/soe.dbf -create >> ~/dbinstall.txt
 if [ $? -ne 0 ]; then
-    echo "oewizard none zero exit code " >> ~/dbinstall.txt
+    echo "ERROR:  oewizard none zero exit code " >> ~/dbinstall.txt
 fi
 # 1 thread 2m 19 - 2 threads 3m 52 - 4 threads 2m 42
  echo "Finished oewizard" >> ~/dbinstall.txt

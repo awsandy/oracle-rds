@@ -56,19 +56,23 @@ echo "======= X11"
 date 
 #yum install -y xorg-x11-server-Xorg xorg-x11-xauth xorg-x11-apps
 #yum install "@X Window System" xorg-x11-xauth xorg-x11-fonts-* xorg-x11-utils –y
+echo "======= epel rpm"
 rpm -U https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 #yum groupinstall -y "Xfce"
+echo "======= group install gnome"
 yum groupinstall -q -y 'X Window System' 'GNOME'
 systemctl set-default graphical.target
 echo "======= xrdp" 
 date 
 yum -q -y install xrdp tigervnc-server
 #yum -y install xrdp
+echo "======= start xrdp"
 systemctl start xrdp
 systemctl enable xrdp
 netstat -antup | grep xrdp 
 echo "======= Oracle section" 
 date 
+echo "======= Oracle pre-req rpm" 
 yum install -y https://yum.oracle.com/repo/OracleLinux/OL7/latest/x86_64/getPackage/oracle-database-preinstall-19c-1.0-1.el7.x86_64.rpm
 #echo "======= xfce4-session" > /home/oracle/.Xclients
 #chown oracle.oinstall /home/oracle/.Xclients
@@ -113,10 +117,11 @@ date
 echo "======= Manaual Oracle root.sh " 
 /u01/app/oraInventory/orainstRoot.sh
 echo -e "\n" | /u01/app/oracle/product/19.3.0/dbhome_1/root.sh
-#echo "======= Oracle dbinstall 2" 
-#date 
-#sudo -u oracle -- sh -c "/software/oracle-rds/dbinstall-2.sh"
-#echo "======= dbinstall 2 done ....." 
+
+echo "======= Oracle dbinstall 2" 
+date 
+sudo -u oracle -- sh -c "/software/oracle-rds/dbinstall-2.sh"
+echo "======= dbinstall 2 done ....." 
 date 
 cat /home/oracle/dbinstall.txt 
 echo "======= Finished 19c server install .. at ======== "
