@@ -123,6 +123,6 @@ date
 sudo -u oracle -- sh -c "/software/oracle-rds/dbinstall-2.sh"
 echo "======= dbinstall 2 done ....." 
 date 
-cat /home/oracle/dbinstall.txt 
+#cat /home/oracle/dbinstall.txt 
 echo "======= Finished 19c server install .. at ======== "
 date 
