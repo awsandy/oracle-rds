@@ -1,7 +1,7 @@
 #!/bin/bash
 set +x
 date
-yum install -q -y wget smartmontools
+yum install -q -y wget smartmontools deltarpm
 echo "SSM agent"
 wget https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
 yum install -q -y amazon-ssm-agent.rpm
