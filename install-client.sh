@@ -15,7 +15,7 @@ systemctl stop firewalld
 systemctl disable firewalld
 sed -i 's/SELINUX=enforcing/SELINUX=permissive/' /etc/selinux/config
 setenforce Permissive
-hostnamectl set-hostname oracle.local
+hostnamectl set-hostname client.local
 groupadd oinstall
 groupadd dba
 useradd -g oinstall -G dba oracle
@@ -70,8 +70,8 @@ echo "======= Oracle software get to /software"
 mkdir /software
 cd /software
 wget -q https://github.com/domgiles/swingbench-public/releases/download/production/swingbenchlatest.zip
-#aws s3 cp s3://oracle-swingbench/java-linux/jre-8u281-linux-x64.rpm jre-8u281-linux-x64.rpm  --quiet
-#yum install -q -y jre-8u281-linux-x64.rpm
+aws s3 cp s3://oracle-swingbench/clients/oracle-instantclient-basic-21.1.0.0.0-1.x86_64.rpm oracle-instantclient-basic-21.1.0.0.0-1.x86_64.rpm  --quiet
+yum install -q -y oracle-instantclient-basic-21.1.0.0.0-1.x86_64.rpm
 chown oracle.oinstall /software/*
 chmod 755 /software/*.sh
 ls /software
