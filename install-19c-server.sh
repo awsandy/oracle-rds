@@ -108,13 +108,15 @@ echo "======= Oracle dbinstall 1" >> /tmp/myinstall.log
 sudo -u oracle -- sh -c "/software/oracle-rds/dbinstall-1.sh"
 
 echo "======= dbinstall 1 done ....." >> /tmp/myinstall.log
-echo "======= Oracle root.sh " >> /tmp/myinstall.log
+date >> /tmp/myinstall.log
+echo "======= Manaual Oracle root.sh " >> /tmp/myinstall.log
 /u01/app/oraInventory/orainstRoot.sh
 echo -e "\n" | /u01/app/oracle/product/19.3.0/dbhome_1/root.sh
-
 echo "======= Oracle dbinstall 2" >> /tmp/myinstall.log
+date >> /tmp/myinstall.log
 sudo -u oracle -- sh -c "/software/oracle-rds/dbinstall-2.sh"
 echo "======= dbinstall 2 done ....." >> /tmp/myinstall.log
+date >> /tmp/myinstall.log
 cat /home/oracle/dbinstall.txt >> /tmp/myinstall.log
-echo "======= Finished 19c server install .. ======== " >> /tmp/myinstall.log
+echo "======= Finished 19c server install .. at ======== " >> /tmp/myinstall.log
 date >> /tmp/myinstall.log

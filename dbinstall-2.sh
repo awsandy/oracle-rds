@@ -3,9 +3,17 @@ cd ~
 export ORACLE_SID=orcl
 
 echo "Starting silent dbca" >> ~/dbinstall.txt
+date >> ~/dbinstall.txt
 $ORACLE_HOME/bin/dbca -silent -createDatabase -responseFile /software/oracle-rds/dbca_orcl-1.rsp >> ~/dbinstall.txt
-lsnrctl start >> ~/dbinstall.txt
+if [ $? -ne 0 ]; then
+    echo "dbca none zero exit code " >> ~/dbinstall.txt
+fi
+lsnrctl start
+if [ $? -ne 0 ]; then
+    echo "lsnr none zero exit code " >> ~/dbinstall.txt
+fi
 echo "Finished silent dbca" >> ~/dbinstall.txt
+date >> ~/dbinstall.txt
 echo "unpacking swingbench" >> ~/dbinstall.txt
 cd ~
 unzip -qq /software/swingbenchlatest.zip
@@ -21,16 +29,22 @@ echo "alter user system identified by manager;" | sqlplus / as sysdba >> ~/dbins
 echo "ALTER DATABASE DEFAULT TEMPORARY TABLESPACE temp2;" | sqlplus / as sysdba >> ~/dbinstall.txt
 echo "sleep 30 for lsnrctl" >> ~/dbinstall.txt
 sleep 30
-lsnrctl status >> ~/dbinstall.txt
+lsnrctl status 
+
 
 echo "swingbench oewizard" >> ~/dbinstall.txt
+date >> ~/dbinstall.txt
 # drop -cl run in char mode 
 #./oewizard -dbap manager -u soe -p soe -cl -cs //localhost/plorcl -ts SOE -drop
 # create
 cd ~/swingbench/bin
 ./oewizard  -dbap manager -u soe -p soe -cl -cs //localhost/orcl -ts SOE -scale 1 -df /u02/oradata/soe.dbf -create >> ~/dbinstall.txt
+if [ $? -ne 0 ]; then
+    echo "oewizard none zero exit code " >> ~/dbinstall.txt
+fi
 # 1 thread 2m 19 - 2 threads 3m 52 - 4 threads 2m 42
- 
+ echo "Finished oewizard" >> ~/dbinstall.txt
+date >> ~/dbinstall.txt
 # inflate data
 #./sbutil -u soe -p soe  -cs //localhost/plorcl -soe parallel 12 -dup 4
 echo "listener status" >> ~/dbinstall.txt
