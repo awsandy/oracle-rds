@@ -71,7 +71,11 @@ sudo yum install -y java-15-amazon-corretto-devel
 echo "======= Oracle software get to /software"
 mkdir /software
 cd /software
+echo "======= swingbench get to /software"
 wget -q https://github.com/domgiles/swingbench-public/releases/download/production/swingbenchlatest.zip
+echo "======= SCT get to /software"
+wget -q https://s3.amazonaws.com/publicsctdownload/Fedora/aws-schema-conversion-tool-1.0.latest.zip
+wget -q https://www.oracle.com/database/technologies/jdbc-ucp-122-downloads.html
 aws s3 cp s3://oracle-swingbench/clients/oracle-instantclient-basic-21.1.0.0.0-1.x86_64.rpm oracle-instantclient-basic-21.1.0.0.0-1.x86_64.rpm  --quiet
 yum install -q -y oracle-instantclient-basic-21.1.0.0.0-1.x86_64.rpm
 chown oracle.oinstall /software/*
