@@ -50,7 +50,7 @@ dd if=/dev/zero of=/swapfile bs=1048576 count=8192
 mkswap /swapfile
 chmod 0600 /swapfile
 echo "/swapfile   swap swap  defaults  0 0" >> /etc/fstab
-systemctl daemon-reload
+#systemctl daemon-reload
 swapon /swapfile
 free -h  
 date
