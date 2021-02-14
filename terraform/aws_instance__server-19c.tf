@@ -8,18 +8,20 @@ disable_api_termination = false
 ebs_optimized = false
 get_password_data = false
 hibernation = false
-iam_instance_profile = "terrafrom_ec2_profile"
+iam_instance_profile = "eksworkshop-admin"
 instance_type = "m5a.xlarge"
 ipv6_address_count = 0
 ipv6_addresses = []
-key_name = "terraform-andyt"
+key_name = "eksworkshop"
 monitoring = true
 secondary_private_ips = []
 security_groups = [
 "Oracle-sg",
 ]
 source_dest_check = true
-subnet_id = aws_subnet.subnet-8c6e3dc4.id
+for_each      = data.aws_subnet_ids.example.ids
+subnet_id     = each.value
+#
 tags = {
 "Name" = "RH7-Oracle-19c"
 "Oracle" = "19c"
