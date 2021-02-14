@@ -18,9 +18,9 @@ monitoring = true
 #"Oracle-sg",
 #security_groups = [
 #]
-source_dest_check = true
-for_each      = data.aws_subnet_ids.example.ids
-subnet_id     = each.value
+#source_dest_check = true
+#for_each      = data.aws_subnet_ids.example.ids
+#subnet_id     = each.value
 
 tags = {
 "Name" = "aml2 Ora Client"
