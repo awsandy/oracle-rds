@@ -14,10 +14,10 @@ ipv6_address_count = 0
 ipv6_addresses = []
 key_name = "eksworkshop"
 monitoring = true
-secondary_private_ips = []
-security_groups = [
-"Oracle-sg",
-]
+#secondary_private_ips = []
+#"Oracle-sg",
+#security_groups = [
+#]
 source_dest_check = true
 for_each      = data.aws_subnet_ids.example.ids
 subnet_id     = each.value
