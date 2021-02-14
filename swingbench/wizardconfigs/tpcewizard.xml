@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WizardConfig Name="TPC-E Like Install Wizard" Mode="InterActive" xmlns="http://www.dominicgiles.com/swingbench/wizard">
+    <WizardSteps RunnableStep="5">
+        <WizardStep SourceFile="com.dom.benchmarking.swingbench.wizards.tpce.Step0"/>
+        <WizardStep SourceFile="com.dom.benchmarking.swingbench.wizards.tpce.Step1"/>
+        <WizardStep SourceFile="com.dom.benchmarking.swingbench.wizards.tpce.Step2"/>
+        <WizardStep SourceFile="com.dom.benchmarking.swingbench.wizards.tpce.Step3"/>
+        <WizardStep SourceFile="com.dom.benchmarking.swingbench.wizards.tpce.Step4"/>
+        <WizardStep SourceFile="com.dom.benchmarking.swingbench.wizards.tpce.Step5"/>
+        <WizardStep SourceFile="com.dom.benchmarking.swingbench.wizards.tpce.Step6"/>
+        <WizardStep SourceFile="com.dom.benchmarking.swingbench.wizards.tpce.Step7"/>
+        <WizardStep SourceFile="com.dom.benchmarking.swingbench.wizards.tpce.Step8"/>
+    </WizardSteps>
+    <DataGenerationConfigurationFiles>
+        <DataGenerationConfigurationFile Version="1.0" Valid="Post">../sql/tpceconfig.xml</DataGenerationConfigurationFile>
+    </DataGenerationConfigurationFiles>
+    <ExecutableClass>com.dom.benchmarking.swingbench.wizards.tpce.TPCEGenerate</ExecutableClass>
+    <DefaultParameters>
+        <Parameter Key="datafile" Value=""/>
+        <Parameter Key="dbausername" Value="sys as sysdba"/>
+        <Parameter Key="indextablespace" Value="tpceIndexes"/>
+        <Parameter Key="connectionstring" Value="//localhost/soe"/>
+        <Parameter Key="dbapassword" Value="enc(JTTtUng7fseg1iSTljVs3A==)"/>
+        <Parameter Key="password" Value="enc(njsMZ32p7n0=)"/>
+        <Parameter Key="output" Value="Verbose"/>
+        <Parameter Key="datatablespacesexists" Value="false"/>
+        <Parameter Key="userexists" Value="true"/>
+        <Parameter Key="username" Value="tpce"/>
+        <Parameter Key="connectiontype" Value="thin"/>
+        <Parameter Key="tablespace" Value="tpce"/>
+        <Parameter Key="indextablespacesexists" Value="false"/>
+        <Parameter Key="scale" Value="0.1"/>
+        <Parameter Key="indexdatafile" Value=""/>
+        <Parameter Key="operation" Value="create"/>
+    </DefaultParameters>
+    <SupportedModels>
+        <Compression>
+            <SupportedCompression>No Compression</SupportedCompression>
+        </Compression>
+        <Partitioning>
+            <SupportedPartitioning>No Partitioning</SupportedPartitioning>
+            <SupportedPartitioning>Interval Partitioning</SupportedPartitioning>
+        </Partitioning>
+        <Indexing>
+            <SupportedIndexing>All Indexes</SupportedIndexing>
+            <SupportedIndexing>Primary Keys Only</SupportedIndexing>
+            <SupportedIndexing>No Indexes</SupportedIndexing>
+        </Indexing>
+    </SupportedModels>
+    <BenchmarkVersion>1.0</BenchmarkVersion>
+    <ValidatorClass>com.dom.benchmarking.swingbench.wizards.tpce.TPCEValidator</ValidatorClass>
+    <SchemaDescription>
+        <TableList>
+            <ObjectName>ACCOUNT_PERMISSION</ObjectName>
+            <ObjectName>ADDRESS</ObjectName>
+            <ObjectName>BROKER</ObjectName>
+            <ObjectName>CHARGE</ObjectName>
+            <ObjectName>COMMISSION_RATE</ObjectName>
+            <ObjectName>COMPANY</ObjectName>
+            <ObjectName>COMPANY_COMPETITOR</ObjectName>
+            <ObjectName>CUSTOMER</ObjectName>
+            <ObjectName>CUSTOMER_ACCOUNT</ObjectName>
+            <ObjectName>CUSTOMER_TAXRATE</ObjectName>
+            <ObjectName>DAILY_MARKET</ObjectName>
+            <ObjectName>EXCHANGE</ObjectName>
+            <ObjectName>FINANCIAL</ObjectName>
+            <ObjectName>INDUSTRY</ObjectName>
+            <ObjectName>LAST_TRADE</ObjectName>
+            <ObjectName>NEWS_ITEM</ObjectName>
+            <ObjectName>NEWS_XREF</ObjectName>
+            <ObjectName>SECTOR</ObjectName>
+            <ObjectName>SECURITY</ObjectName>
+            <ObjectName>SETTLEMENT</ObjectName>
+            <ObjectName>STATUS_TYPE</ObjectName>
+            <ObjectName>TAX_RATE</ObjectName>
+            <ObjectName>TRADE_TYPE</ObjectName>
+            <ObjectName>WATCH_ITEM</ObjectName>
+            <ObjectName>WATCH_LIST</ObjectName>
+            <ObjectName>ZIP_CODE</ObjectName>
+            <ObjectName>CASH_TRANSACTION</ObjectName>
+            <ObjectName>HOLDING</ObjectName>
+            <ObjectName>HOLDING_HISTORY</ObjectName>
+            <ObjectName>HOLDING_SUMMARY</ObjectName>
+            <ObjectName>TRADE</ObjectName>
+            <ObjectName>TRADE_HISTORY</ObjectName>
+            <ObjectName>TRADE_REQUEST</ObjectName>
+        </TableList>
+        <IndexList>
+            <ObjectName>AP_PK_IDX</ObjectName>
+            <ObjectName>ADDRESS_PK_IDX</ObjectName>
+            <ObjectName>BROKER_PK_IDX</ObjectName>
+            <ObjectName>CHARGE_PK_IDX</ObjectName>
+            <ObjectName>COMMISSION_RATE_PK_IDX</ObjectName>
+            <ObjectName>COMPANY_PK_IDX</ObjectName>
+            <ObjectName>COMPANY_COMPETITOR_PK_IDX</ObjectName>
+            <ObjectName>CUSTOMER_PK_IDX</ObjectName>
+            <ObjectName>CUSTOMER_ACCOUNT_PK_IDX</ObjectName>
+            <ObjectName>CUSTOMER_TAXRATE_PK_IDX</ObjectName>
+            <ObjectName>DAILY_MARKET_PK_IDX</ObjectName>
+            <ObjectName>EXCHANGE_PK_IDX</ObjectName>
+            <ObjectName>FINANCIAL_PK_IDX</ObjectName>
+            <ObjectName>INDUSTRY_PK_IDX</ObjectName>
+            <ObjectName>LAST_TRADE_PK_IDX</ObjectName>
+            <ObjectName>NEWS_ITEM_PK_IDX</ObjectName>
+            <ObjectName>NEWS_XREF_PK_IDX</ObjectName>
+            <ObjectName>SECTOR_PK_IDX</ObjectName>
+            <ObjectName>SECURITY_PK_IDX</ObjectName>
+            <ObjectName>SETTLEMENT_PK_IDX</ObjectName>
+            <ObjectName>STATUS_TYPE_PK_IDX</ObjectName>
+            <ObjectName>TAX_RATE_PK_IDX</ObjectName>
+            <ObjectName>TRADE_TYPE_PK_IDX</ObjectName>
+            <ObjectName>WATCH_ITEM_PK_IDX</ObjectName>
+            <ObjectName>WATCH_LIST_PK_IDX</ObjectName>
+            <ObjectName>ZIP_CODE_PK_IDX</ObjectName>
+            <ObjectName>CASH_TRANSACTION_PK_IDX</ObjectName>
+            <ObjectName>HOLDING_PK_IDX</ObjectName>
+            <ObjectName>HOLDING_HISTORY_PK_IDX</ObjectName>
+            <ObjectName>HOLDING_SUMMARY_PK_IDX</ObjectName>
+            <ObjectName>TRADE_PK_IDX</ObjectName>
+            <ObjectName>TRADE_HISTORY_PK_IDX</ObjectName>
+            <ObjectName>TRADE_REQUEST_PK_IDX</ObjectName>
+        </IndexList>
+        <SequenceList/>
+        <ViewList/>
+        <CodeList>
+            <ObjectName>PKG_TPCE_TRANSACTIONS</ObjectName>
+        </CodeList>
+    </SchemaDescription>
+    <SQLScripts>
+        <InitilisationScripts>
+            <SQLScript Version="1.0" Valid="Post" Topic="createtablespace">../sql/tpce_createtablespace.sql</SQLScript>
+            <SQLScript Version="1.0" Valid="Post" Topic="createindextablespace">../sql/tpce_create_index_tablespace.sql</SQLScript>
+            <SQLScript Version="1.0" Valid="Post" Topic="createuser">../sql/tpce_createuser.sql</SQLScript>
+        </InitilisationScripts>
+        <PreDataGenerationScripts>
+            <VariableList>
+                <Variable>
+                    <Key>compression</Key>
+                    <Value></Value>
+                </Variable>
+                <Variable>
+                    <Key>tablespace</Key>
+                    <Value>tpce</Value>
+                </Variable>
+            </VariableList>
+            <SQLScript Version="1.0" Valid="Post" Topic="dropuserobjects" Labels="No Partitioning">../sql/tpce_droptables.sql</SQLScript>
+            <SQLScript Version="1.0" Valid="Post" Topic="createtables" Labels="No Partitioning">../sql/tpce_createtables.sql</SQLScript>
+        </PreDataGenerationScripts>
+        <PostDataGenerationScripts>
+            <VariableList>
+                <Variable>
+                    <Key>parallelism</Key>
+                    <Value>2</Value>
+                </Variable>
+                <Variable>
+                    <Key>tablespace</Key>
+                    <Value>tpce</Value>
+                </Variable>
+                <Variable>
+                    <Key>indextablespace</Key>
+                    <Value>tpce_INDEXES</Value>
+                </Variable>
+                <Variable>
+                    <Key>parallelclause</Key>
+                    <Value>parallel 2</Value>
+                </Variable>
+                <Variable>
+                    <Key>logging</Key>
+                    <Value>nologging</Value>
+                </Variable>
+                <Variable>
+                    <Key>username</Key>
+                    <Value>tpce</Value>
+                </Variable>
+                <Variable>
+                    <Key>running_in_cloud</Key>
+                    <Value>false</Value>
+                </Variable>
+            </VariableList>
+            <SQLScript Version="1.0" Valid="Post" Topic="generic">../sql/tpce_analyzeschema.sql</SQLScript>
+            <SQLScript Version="1.0" Valid="Post" Topic="createindexes" Labels="All Indexes,Primary Keys Only,No Partitioning,Interval Partitioning">../sql/tpce_constraints.sql</SQLScript>
+            <SQLScript Version="1.0" Valid="Post" Topic="createcode" Labels="All">../sql/tpce_transactions_hdr.sql</SQLScript>
+            <SQLScript Version="1.0" Valid="Post" Topic="createcode" Labels="All">../sql/tpce_transactions_bdy.sql</SQLScript>
+        </PostDataGenerationScripts>
+        <PurgeScripts>
+            <SQLScript Version="1.0" Valid="Post" Topic="droptablespace">../sql/tpce_droptablespace.sql</SQLScript>
+            <SQLScript Version="1.0" Valid="Post" Topic="dropuser">../sql/tpce_dropuser.sql</SQLScript>
+        </PurgeScripts>
+    </SQLScripts>
+</WizardConfig>

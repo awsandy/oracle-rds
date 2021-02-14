@@ -1,0 +1,8 @@
+CREATE &tablespacemodel TABLESPACE &indextablespace 
+  DATAFILE &indexdatafile
+  SIZE &indexdatafilesize
+  AUTOEXTEND ON NEXT 64M MAXSIZE UNLIMITED
+  EXTENT MANAGEMENT LOCAL UNIFORM SIZE 1M
+  SEGMENT SPACE MANAGEMENT AUTO;
+
+-- exit;
