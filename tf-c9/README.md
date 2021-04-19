@@ -4,6 +4,8 @@ oewizard size 1 - 4m09 - m5.large 20GB   14300 free
 8 users 54796/973
 16 users 49900/866
 
+
+## cganhe to muti-instance 24min
 11:30 Modifying to multi-instance (sync)
 11:54 conversion complete
 
@@ -51,3 +53,17 @@ with read replica ready
 
 Split
 Read - browse products/orders
+
+
+## 10GB database tests
+8 users 78,000 tpm
+
+
+8 users 56,000 tpm
+
+
+
+Read rep: 
+12:30 start backup
+12:45 finished backup
+
