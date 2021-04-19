@@ -1,15 +1,16 @@
 #!/bin/bash
 set +x
 date
-yum install -q -y wget smartmontools deltarpm jq nmap
+yum install -y wget smartmontools deltarpm jq nmap
 echo "SSM agent"
 wget https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
-yum install -q -y amazon-ssm-agent.rpm
+yum install -y amazon-ssm-agent.rpm
 systemctl enable amazon-ssm-agent
 systemctl start amazon-ssm-agent
 systemctl status amazon-ssm-agent
+sleep 10
 echo "======= yum compat" 
-yum install -q -y -e 0 binutils.x86_64 compat-libcap1.x86_64 gcc.x86_64 gcc-c++.x86_64 glibc.i686 glibc.x86_64 glibc-devel.i686 glibc-devel.x86_64 ksh compat-libstdc++-33 libaio.i686 libaio.x86_64 libaio-devel.i686 libaio-devel.x86_64 libgcc.i686 libgcc.x86_64 libstdc++.i686 libstdc++.x86_64 libstdc++-devel.i686 libstdc++-devel.x86_64 libXi.i686 libXi.x86_64 libXtst.i686 libXtst.x86_64 make.x86_64 sysstat.x86_64 zip unzip
+yum install -y -e 0 binutils.x86_64 compat-libcap1.x86_64 gcc.x86_64 gcc-c++.x86_64 glibc.i686 glibc.x86_64 glibc-devel.i686 glibc-devel.x86_64 ksh compat-libstdc++-33 libaio.i686 libaio.x86_64 libaio-devel.i686 libaio-devel.x86_64 libgcc.i686 libgcc.x86_64 libstdc++.i686 libstdc++.x86_64 libstdc++-devel.i686 libstdc++-devel.x86_64 libXi.i686 libXi.x86_64 libXtst.i686 libXtst.x86_64 make.x86_64 sysstat.x86_64 zip unzip
 firewall-cmd --add-port=3389/tcp --permanent
 systemctl stop firewalld
 systemctl disable firewalld
@@ -62,12 +63,12 @@ rpm -U https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 #yum groupinstall -y "Xfce"
 echo "======= group install MATE"
 #yum groupinstall -q -y 'X Window System' 'GNOME'
-yum groupinstall -q -y "MATE Desktop"
+yum groupinstall -y "MATE Desktop"
 echo "PREFERRED=/usr/bin/mate-session" > /etc/sysconfig/desktop
 systemctl set-default graphical.target
 echo "======= xrdp" 
 date 
-yum -q -y install xrdp tigervnc-server
+yum  -y install xrdp tigervnc-server
 #yum -y install xrdp
 echo "======= start xrdp"
 systemctl start xrdp

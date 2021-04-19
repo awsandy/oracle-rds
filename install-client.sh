@@ -4,12 +4,12 @@ date
 yum install -q -y wget smartmontools deltarpm jq nmap
 echo "SSM agent"
 wget https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
-yum install -q -y amazon-ssm-agent.rpm
+yum install -y amazon-ssm-agent.rpm
 systemctl enable amazon-ssm-agent
 systemctl start amazon-ssm-agent
 #systemctl status amazon-ssm-agent
 echo "======= yum compat"
-yum install -q -y compat-libcap1.x86_64 gcc.x86_64 gcc-c++.x86_64 glibc.i686 glibc.x86_64 glibc-devel.i686 glibc-devel.x86_64 ksh compat-libstdc++-33 libgcc.i686 libstdc++.i686 libstdc++-devel.i686 libstdc++-devel.x86_64 libXi.i686 libXi.x86_64 libXtst.i686 libXtst.x86_64
+yum install -y compat-libcap1.x86_64 gcc.x86_64 gcc-c++.x86_64 glibc.i686 glibc.x86_64 glibc-devel.i686 glibc-devel.x86_64 ksh compat-libstdc++-33 libgcc.i686 libstdc++.i686 libstdc++-devel.i686 libstdc++-devel.x86_64 libXi.i686 libXi.x86_64 libXtst.i686 libXtst.x86_64
 firewall-cmd --add-port=3389/tcp --permanent
 systemctl stop firewalld
 systemctl disable firewalld
@@ -48,14 +48,14 @@ unzip -qq awscliv2.zip
 date
 echo "======= X11 mate "
 which  amazon-linux-extras
-amazon-linux-extras install -q -y mate-desktop1.x
+amazon-linux-extras install -y mate-desktop1.x
 echo "PREFERRED=/usr/bin/mate-session" > /etc/sysconfig/desktop
 
 rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 
 systemctl set-default graphical.target
 echo "======= xrdp"
-yum -q -y install xrdp tigervnc-server
+yum -y install xrdp tigervnc-server
 #yum -y install xrdp
 systemctl start xrdp
 systemctl enable xrdp
@@ -84,7 +84,7 @@ ls /software
 echo "======= Oracle clinstall 1" 
 sudo -u oracle -- sh -c "/software/oracle-rds/clinstall-1.sh"
 echo "X11 stuff again ......"
-amazon-linux-extras install -q -y mate-desktop1.x
+amazon-linux-extras install -y mate-desktop1.x
 echo "PREFERRED=/usr/bin/mate-session" > /etc/sysconfig/desktop
 rsp=$(aws ec2 describe-instances --filters "Name=instance-state-name,Values=running" "Name=tag:Oracle,Values=19c" | jq -r .Reservations[].Instances[].PrivateIpAddress)
 echo "Server:  $rsp"
