@@ -48,7 +48,7 @@ curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip
 unzip -qq awscliv2.zip
 ./aws/install
 echo "======= Swap"
-dd if=/dev/zero of=/swapfile bs=1048576 count=8192
+dd if=/dev/zero of=/swapfile bs=1048576 count=16384
 mkswap /swapfile
 chmod 0600 /swapfile
 echo "/swapfile   swap swap  defaults  0 0" >> /etc/fstab
