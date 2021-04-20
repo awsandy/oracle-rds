@@ -27,4 +27,7 @@ echo "======= start xrdp"
 systemctl start xrdp
 systemctl enable xrdp
 netstat -antup | grep xrdp 
+firewall-cmd --add-port=3389/tcp --permanent
+systemctl stop firewalld
+systemctl disable firewalld
 
