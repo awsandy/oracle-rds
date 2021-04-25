@@ -86,8 +86,8 @@ sudo -u oracle -- sh -c "/software/oracle-rds/clinstall-1.sh"
 echo "X11 stuff again ......"
 amazon-linux-extras install -y mate-desktop1.x
 echo "PREFERRED=/usr/bin/mate-session" > /etc/sysconfig/desktop
-rsp=$(aws ec2 describe-instances --filters "Name=instance-state-name,Values=running" "Name=tag:Oracle,Values=19c" | jq -r .Reservations[].Instances[].PrivateIpAddress)
-echo "Server:  $rsp"
-echo "$rsp oraclelinux" >> /etc/hosts
+#rsp=$(aws ec2 describe-instances --filters "Name=instance-state-name,Values=running" "Name=tag:Oracle,Values=19c" | jq -r .Reservations[].Instances[].PrivateIpAddress)
+#echo "Server:  $rsp"
+#echo "$rsp oraclelinux" >> /etc/hosts
 date
 

@@ -1,8 +1,7 @@
 
 # aws_instance.i-03ee18a908b767aaa:
 resource "aws_instance" "i-03ee18a908b767aaa" {
-  depends_on = [aws_instance.i-0ea74eed9dfaea5ac]
-  ami                         = "ami-0fc970315c2d38f01"
+  ami                         = data.aws_ssm_parameter.aml2ami.value
   associate_public_ip_address = true
   availability_zone           = "eu-west-1b"
   disable_api_termination     = false
