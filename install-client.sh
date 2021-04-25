@@ -75,11 +75,13 @@ echo "======= swingbench get to /software"
 wget -q https://github.com/domgiles/swingbench-public/releases/download/production/swingbenchlatest.zip
 echo "======= SCT get to /software"
 wget -q https://s3.amazonaws.com/publicsctdownload/Fedora/aws-schema-conversion-tool-1.0.latest.zip
-wget -q https://www.oracle.com/database/technologies/jdbc-ucp-122-downloads.html
+#wget -q https://www.oracle.com/database/technologies/jdbc-ucp-122-downloads.html
+echo "======= get oracle inst client"
 aws s3 cp s3://oracle-swingbench/clients/oracle-instantclient-basic-21.1.0.0.0-1.x86_64.rpm oracle-instantclient-basic-21.1.0.0.0-1.x86_64.rpm  --quiet
+echo "======= install oracle inst client"
 yum install -q -y oracle-instantclient-basic-21.1.0.0.0-1.x86_64.rpm
 chown oracle.oinstall /software/*
-chmod 755 /software/*.sh
+#chmod -R 755 /software/*.sh
 ls /software
 echo "======= Oracle clinstall 1" 
 sudo -u oracle -- sh -c "/software/oracle-rds/clinstall-1.sh"
