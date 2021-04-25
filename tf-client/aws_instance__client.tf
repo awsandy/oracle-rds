@@ -3,7 +3,7 @@
 resource "aws_instance" "i-03ee18a908b767aaa" {
   ami                         = data.aws_ssm_parameter.aml2ami.value
   associate_public_ip_address = true
-  availability_zone           = "eu-west-1b"
+  availability_zone           = "eu-west-2b"
   disable_api_termination     = false
   ebs_optimized               = false
   get_password_data           = false

@@ -13,10 +13,8 @@ data "aws_subnet" "example" {
 }
 
 data "aws_subnet" "orasub" {
-
+#id="subnet-f835fbb4"
 vpc_id = data.aws_vpc.vpc-default.id
-  filter {
-    name   = "tag:Name"
-    values = ["pub-default1"]
-  }
+availability_zone   = "eu-west-2b"
+
 }
