@@ -18,3 +18,4 @@ vpc_id = data.aws_vpc.vpc-default.id
 availability_zone   = "eu-west-2b"
 
 }
+

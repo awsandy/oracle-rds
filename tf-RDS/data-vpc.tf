@@ -11,3 +11,10 @@ data "aws_subnet" "example" {
   for_each = data.aws_subnet_ids.example.ids
   id       = each.value
 }
+
+data "aws_security_group" "sg-ora" {
+    filter {
+    name   = "tag:Name"
+    values = ["Oracle-sg"]
+  }
+}

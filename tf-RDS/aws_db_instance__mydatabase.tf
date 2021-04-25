@@ -45,7 +45,7 @@ storage_type = "gp3"
 tags = {}
 username = "oraadmin"
 vpc_security_group_ids = [
-aws_security_group.sg-086bfef57ba61eb11.id,
+data.aws_security_group.sg-ora.id,
 ]
 
 timeouts {}

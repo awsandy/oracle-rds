@@ -73,7 +73,7 @@ resource "aws_security_group" "sg-oracle" {
     },
   ]
   name   = "Oracle-sg"
-  tags   = {}
+  tags   = {"Name" = "Oracle-sg"}
   vpc_id = data.aws_vpc.vpc-default.id
 
   timeouts {}
