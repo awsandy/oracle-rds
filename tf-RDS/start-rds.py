@@ -45,16 +45,17 @@ for i in range(len(db_instances['DBInstances'])):
 
             Endpoint = db_instances['DBInstances'][i]['Endpoint']
             Address = db_instances['DBInstances'][i]['Endpoint']['Address']
-            print("{} {} {} {} {} {} {}".format(i, Address, MasterUsername, DBName, DBInstanceClass,DBInstanceIdentifier, DBInstanceState))
+            if "dwp" in DBInstanceIdentifier:
+                print("{} {} {} {} {} {} {}".format(i, Address, MasterUsername, DBName, DBInstanceClass,DBInstanceIdentifier, DBInstanceState))
 
-            if "available" not in DBInstanceState:
-                try:
-                    print('Starting ' + DBInstanceIdentifier)
-                    response = rds.start_db_instance(DBInstanceIdentifier=DBInstanceIdentifier)
-                    print('Start Success :: ')
-                    
-                except ClientError as e:
-                        print(e)    
+                if "stopped" in DBInstanceState:
+                    try:
+                        print('Starting ' + DBInstanceIdentifier)
+                        response = rds.start_db_instance(DBInstanceIdentifier=DBInstanceIdentifier)
+                        print('Start Success :: ')
+                        
+                    except ClientError as e:
+                            print(e)    
 exit()
 """
     return
