@@ -1,6 +1,6 @@
 
 # aws_instance.i-03ee18a908b767aaa:
-resource "aws_instance" "i-03ee18a908b767aaa" {
+resource "aws_instance" "client" {
   ami                         = data.aws_ssm_parameter.aml2ami.value
   associate_public_ip_address = true
   availability_zone           = "eu-west-2b"
@@ -12,7 +12,7 @@ resource "aws_instance" "i-03ee18a908b767aaa" {
   instance_type               = "t2.medium"
   ipv6_address_count          = 0
   ipv6_addresses              = []
-  key_name                    = "eksworkshop"
+  key_name                    = "terraform-andyt"
   monitoring                  = true
   secondary_private_ips       = []
   security_groups = [
@@ -63,3 +63,6 @@ resource "aws_instance" "i-03ee18a908b767aaa" {
 
   timeouts {}
 }
+
+
+

@@ -13,7 +13,7 @@ data "aws_subnet" "example" {
 }
 
 data "aws_security_group" "sg-ora" {
-    filter {
+  filter {
     name   = "tag:Name"
     values = ["Oracle-sg"]
   }
