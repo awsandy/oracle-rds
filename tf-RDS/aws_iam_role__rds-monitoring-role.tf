@@ -18,7 +18,7 @@ resource "aws_iam_role" "rds-monitoring-role" {
   )
   force_detach_policies = false
   max_session_duration  = 43200
-  name                  = "rds-monitoring-role"
+  name                  = "rds-dwp-monitoring-role"
   path                  = "/"
   tags                  = {}
 }
