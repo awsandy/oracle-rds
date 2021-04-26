@@ -8,7 +8,7 @@ resource "aws_instance" "client" {
   ebs_optimized               = false
   get_password_data           = false
   hibernation                 = false
-  iam_instance_profile        = "eksworkshop-admin"
+  iam_instance_profile        = "oracle-admin"
   instance_type               = "t2.medium"
   ipv6_address_count          = 0
   ipv6_addresses              = []

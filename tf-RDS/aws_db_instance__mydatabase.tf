@@ -16,7 +16,7 @@ resource "aws_db_instance" "mydatabase" {
     "audit",
   ]
   engine                              = "oracle-ee"
-  engine_version                      = "18.0.0.0.ru-2020-10.rur-2020-10.r1"
+  engine_version                      = "19.0.0.0.ru-2020-10.rur-2020-10.r1"
   iam_database_authentication_enabled = false
   identifier                          = "mydatabase"
   instance_class                      = "db.m5.xlarge"
@@ -30,8 +30,8 @@ resource "aws_db_instance" "mydatabase" {
   #monitoring_role_arn = "arn:aws:iam::463726854253:role/rds-monitoring-role"
   multi_az                     = true
   name                         = "ORCL"
-  option_group_name            = "default:oracle-ee-18"
-  parameter_group_name         = "default.oracle-ee-18"
+  option_group_name            = "default:oracle-ee-19"
+  parameter_group_name         = "default.oracle-ee-19"
   performance_insights_enabled = true
   #performance_insights_kms_key_id = "arn:aws:kms:eu-west-1:463726854253:key/04bcd32d-afd0-499b-9487-e0e34a203e39"
   performance_insights_retention_period = 2
