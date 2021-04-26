@@ -2,6 +2,7 @@
 # aws_db_instance.mydatabase:
 #
 # Multi az Creation time ~ 15 minutes
+# Destroy 7m 30s
 #
 resource "aws_db_instance" "mydatabase" {
   allocated_storage          = 128
@@ -40,7 +41,7 @@ resource "aws_db_instance" "mydatabase" {
   performance_insights_kms_key_id = "arn:aws:kms:eu-west-2:773555691132:key/e8ad345a-745d-4f55-aa2c-ab4c6855fc86"
   performance_insights_retention_period = 7
   port                                  = 1521
-  publicly_accessible                   = true
+  publicly_accessible                   = false
 
   security_group_names = []
   skip_final_snapshot  = true
