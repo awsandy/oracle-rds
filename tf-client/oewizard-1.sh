@@ -21,7 +21,7 @@ dbp=$(aws secretsmanager get-secret-value --region eu-west-2 --secret-id db-cred
 #
 # create
 cd ~/swingbench/bin
-./oewizard  -dba admin -dbap $dbp -u soe -p soe -cl -cs //$db1/orcl -ts SOE -scale 1 -create -tc 8 -v
+./oewizard  -dba admin -dbap $dbp -u soe -p soe -cl -cs //$db1/orcl -ts SOE -scale 32 -create -tc 8 -v
 if [ $? -ne 0 ]; then
     echo "ERROR:  oewizard non zero exit code "
 fi
