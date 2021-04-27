@@ -5,7 +5,7 @@ oewizard size 1 - 4m09 - m5.large 20GB   14300 free
 16 users 49900/866
 
 
-## cganhe to muti-instance 24min
+## change to muti-instance 24min
 11:30 Modifying to multi-instance (sync)
 11:54 conversion complete
 
