@@ -49,3 +49,4 @@ fi
 # 1 thread 2m 19 - 2 threads 3m 52 - 4 threads 2m 42
 echo "Finished oewizard"
 date
+# 32GB ~ 40m
