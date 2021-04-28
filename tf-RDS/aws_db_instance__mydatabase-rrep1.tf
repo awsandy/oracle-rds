@@ -22,7 +22,7 @@ resource "aws_db_instance" "rds-multiaz-rr" {
   instance_class                      = "db.m5.2xlarge"
   storage_type         = "io1"
   iops                                = 3000
-  kms_key_id = "arn:aws:kms:eu-west-2:773555691132:key/e8ad345a-745d-4f55-aa2c-ab4c6855fc86"
+  kms_key_id = "arn:aws:kms:eu-west-2:069541074868:key/8c82e531-7f33-4040-bf01-a2eb4589aa62"
   license_model         = "bring-your-own-license"
   maintenance_window    = "sun:01:26-sun:01:56"
   max_allocated_storage = 1000
@@ -34,7 +34,7 @@ resource "aws_db_instance" "rds-multiaz-rr" {
   option_group_name            = "default:oracle-ee-19"
   parameter_group_name         = "default.oracle-ee-19"
   performance_insights_enabled = true
-  performance_insights_kms_key_id = "arn:aws:kms:eu-west-2:773555691132:key/e8ad345a-745d-4f55-aa2c-ab4c6855fc86"
+  performance_insights_kms_key_id = "arn:aws:kms:eu-west-2:069541074868:key/8c82e531-7f33-4040-bf01-a2eb4589aa62"
   performance_insights_retention_period = 7
   port                                  = 1521
   publicly_accessible                   = false
