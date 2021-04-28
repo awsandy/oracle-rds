@@ -1,0 +1,1 @@
+/opt/aws/aws-otel-collector/bin/aws-otel-collector-ctl -c config.yaml -a start
