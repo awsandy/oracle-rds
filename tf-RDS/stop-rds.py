@@ -50,8 +50,8 @@ for i in range(len(db_instances['DBInstances'])):
 
                 if "available" in DBInstanceState:
                     try:
-                        response = rds.stop_db_instance(DBInstanceIdentifier="dwp-demo-ha-az2")
-                        print('Stop Success :: ')
+                        response = rds.stop_db_instance(DBInstanceIdentifier=DBInstanceIdentifier)
+                        print('Stop Success :: '+ DBInstanceIdentifier)
                         
                     except ClientError as e:
                             print(e)    

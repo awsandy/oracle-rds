@@ -2,13 +2,10 @@
 resource "aws_db_instance" "rds-multiaz-rr" {
   #allocated_storage          = 128
   auto_minor_version_upgrade = false
-  backup_retention_period    = 3
-  backup_window              = "22:43-23:13"
   ca_cert_identifier         = "rds-ca-2019"
   character_set_name         = "AL32UTF8"
   copy_tags_to_snapshot      = true
   #db_subnet_group_name = "default"
-  delete_automated_backups = true
   deletion_protection      = false
   enabled_cloudwatch_logs_exports = [
     "alert",
