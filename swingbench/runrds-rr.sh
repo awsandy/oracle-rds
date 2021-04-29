@@ -1,0 +1,1 @@
+~/swingbench/bin/swingbench -c myconfig-readonly.xml

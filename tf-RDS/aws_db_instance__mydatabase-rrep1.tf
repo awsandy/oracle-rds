@@ -15,7 +15,7 @@ resource "aws_db_instance" "rds-multiaz-rr" {
   #engine                              = "oracle-ee"
   #engine_version                      = "19.0.0.0.ru-2021-01.rur-2021-01.r2"
   iam_database_authentication_enabled = false
-  identifier                          = "dwp-demo-ha-az2-rr"
+  identifier                          = "dwp-demo-ha2-az2-rr"
   instance_class                      = "db.m5.2xlarge"
   storage_type         = "io1"
   iops                                = 3000
