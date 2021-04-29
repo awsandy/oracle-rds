@@ -1,1 +1,1 @@
-~/swingbench/bin/swingbench -c myconfig-ha+rr.xml
+bin/swingbench -c myconfig-ha+rr.xml
