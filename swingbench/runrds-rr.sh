@@ -1,1 +1,1 @@
-bin/swingbench -c ../configs/myconfig-readonly.xml
+bin/swingbench -c ../configs/myconfig-readonly.xml &
