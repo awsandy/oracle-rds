@@ -13,7 +13,7 @@
         </Properties>
     </Connection>
     <Load>
-        <NumberOfUsers>8</NumberOfUsers>
+        <NumberOfUsers>16</NumberOfUsers>
         <MinDelay>0</MinDelay>
         <MaxDelay>0</MaxDelay>
         <InterMinDelay>0</InterMinDelay>
