@@ -4,8 +4,8 @@
     <Comment>Version 2 of the SOE Benchmark running in the database using PL/SQL</Comment>
     <Connection>
         <UserName>soe</UserName>
-        <Password>enc(soe)</Password>
-        <ConnectString>//dwp-demo-ha2-az2-rr.csdfcexlmpch.eu-west-2.rds.amazonaws.com/orcl</ConnectString>
+        <Password>soe</Password>
+        <ConnectString>//dwp-demo-ha2-az2.csdfcexlmpch.eu-west-2.rds.amazonaws.com/orcl</ConnectString>
         <DriverType>Oracle jdbc Driver</DriverType>
         <Properties>
             <Property Key="StatementCaching">120</Property>
@@ -13,7 +13,7 @@
         </Properties>
     </Connection>
     <Load>
-        <NumberOfUsers>4</NumberOfUsers>
+        <NumberOfUsers>8</NumberOfUsers>
         <MinDelay>0</MinDelay>
         <MaxDelay>0</MaxDelay>
         <InterMinDelay>0</InterMinDelay>

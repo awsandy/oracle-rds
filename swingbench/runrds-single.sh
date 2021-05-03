@@ -1,1 +1,1 @@
-bin/swingbench -c myconfig-single.xml
+bin/swingbench -c ../configs/myconfig-single.xml
