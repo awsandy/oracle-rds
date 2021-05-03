@@ -13,7 +13,7 @@
         </Properties>
     </Connection>
     <Load>
-        <NumberOfUsers>16</NumberOfUsers>
+        <NumberOfUsers>8</NumberOfUsers>
         <MinDelay>0</MinDelay>
         <MaxDelay>0</MaxDelay>
         <InterMinDelay>0</InterMinDelay>
@@ -34,14 +34,14 @@
                 <ShortName>NCR</ShortName>
                 <ClassName>com.dom.benchmarking.swingbench.plsqltransactions.NewCustomerProcessV2</ClassName>
                 <Weight>15</Weight>
-                <Enabled>true</Enabled>
+                <Enabled>false</Enabled>
             </Transaction>
             <Transaction>
                 <Id>Update Customer Details</Id>
                 <ShortName>UCD</ShortName>
                 <ClassName>com.dom.benchmarking.swingbench.plsqltransactions.UpdateCustomerDetailsV2</ClassName>
                 <Weight>10</Weight>
-                <Enabled>true</Enabled>
+                <Enabled>false</Enabled>
             </Transaction>
             <Transaction>
                 <Id>Browse Products</Id>
@@ -55,21 +55,21 @@
                 <ShortName>OP</ShortName>
                 <ClassName>com.dom.benchmarking.swingbench.plsqltransactions.NewOrderProcess</ClassName>
                 <Weight>40</Weight>
-                <Enabled>true</Enabled>
+                <Enabled>false</Enabled>
             </Transaction>
             <Transaction>
                 <Id>Process Orders</Id>
                 <ShortName>PO</ShortName>
                 <ClassName>com.dom.benchmarking.swingbench.plsqltransactions.ProcessOrders</ClassName>
                 <Weight>5</Weight>
-                <Enabled>true</Enabled>
+                <Enabled>false</Enabled>
             </Transaction>
             <Transaction>
                 <Id>Browse Orders</Id>
                 <ShortName>BO</ShortName>
                 <ClassName>com.dom.benchmarking.swingbench.plsqltransactions.BrowseAndUpdateOrders</ClassName>
                 <Weight>15</Weight>
-                <Enabled>true</Enabled>
+                <Enabled>false</Enabled>
             </Transaction>
             <Transaction>
                 <Id>Sales Rep Query</Id>
