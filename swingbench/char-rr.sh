@@ -1,1 +1,1 @@
-bin/swingbench -c ../configs/myconfig-readonly.xml &
+bin/charbench -c ../configs/myconfig-readonly.xml -a -v users,tpm,tps,cpu -rt 0:5 

@@ -1,1 +1,1 @@
-bin/swingbench -c ../configs/myconfig-ha+rr.xml &
+bin/swingbench -c ../configs/myconfig-ha+rr.xml -a -v users,tpm,tps,cpu -rt 0:5 
