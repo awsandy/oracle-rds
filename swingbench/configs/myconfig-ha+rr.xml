@@ -76,21 +76,21 @@
                 <ShortName>SQ</ShortName>
                 <ClassName>com.dom.benchmarking.swingbench.plsqltransactions.SalesRepsOrdersQuery</ClassName>
                 <Weight>2</Weight>
-                <Enabled>true</Enabled>
+                <Enabled>false</Enabled>
             </Transaction>
             <Transaction>
                 <Id>Warehouse Query</Id>
                 <ShortName>WQ</ShortName>
                 <ClassName>com.dom.benchmarking.swingbench.plsqltransactions.WarehouseOrdersQuery</ClassName>
                 <Weight>1</Weight>
-                <Enabled>true</Enabled>
+                <Enabled>false</Enabled>
             </Transaction>
             <Transaction>
                 <Id>Warehouse Activity Query</Id>
                 <ShortName>WA</ShortName>
                 <ClassName>com.dom.benchmarking.swingbench.plsqltransactions.WarehouseActivityQuery</ClassName>
                 <Weight>1</Weight>
-                <Enabled>true</Enabled>
+                <Enabled>false</Enabled>
             </Transaction>
         </TransactionList>
         <EnvironmentVariables>
