@@ -1,1 +1,1 @@
-bin/charbench -c ../configs/myconfig-single.xml -a -v users,tpm,tps,cpu -rt 0:5 
+bin/charbench -c ../configs/myconfig-single.xml -a -v users,tpm,tps,resp,dml,trem -rt 0:10
