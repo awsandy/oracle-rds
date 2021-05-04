@@ -1,0 +1,1 @@
+bin/swingbench -c ../configs/myconfig-ha.xml &

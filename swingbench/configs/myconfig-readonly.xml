@@ -48,7 +48,7 @@
                 <ShortName>BP</ShortName>
                 <ClassName>com.dom.benchmarking.swingbench.plsqltransactions.BrowseProducts</ClassName>
                 <Weight>90</Weight>
-                <Enabled>true</Enabled>
+                <Enabled>false</Enabled>
             </Transaction>
             <Transaction>
                 <Id>Order Products</Id>

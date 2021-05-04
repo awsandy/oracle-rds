@@ -15,7 +15,7 @@ if [ $db1 != "" ];then
     echo "swingbench oewizard"
     date
    
-    time ./oewizard  -dba admin -dbap $dbp -u soe -p soe -cl -cs //$db1/orcl -ts SOE -scale 32 -create -tc 8 -v 
+    time ./oewizard  -dba admin -dbap $dbp -u soe -p soe -cl -cs //$db1/orcl -ts SOE -scale 16 -create -tc 8 -v 
     if [ $? -ne 0 ]; then
         echo "ERROR:  oewizard non zero exit code "
     fi
@@ -27,7 +27,7 @@ if [ $db2 != "" ];then
     echo "swingbench oewizard"
     date
 
-    ./oewizard  -dba admin -dbap $dbp -u soe -p soe -cl -cs //$db2/orcl -ts SOE -scale 32 -create -tc 8 -v 
+    ./oewizard  -dba admin -dbap $dbp -u soe -p soe -cl -cs //$db2/orcl -ts SOE -scale 16 -create -tc 8 -v 
     if [ $? -ne 0 ]; then
         echo "ERROR:  oewizard non zero exit code "
     fi
@@ -40,7 +40,7 @@ if [ $db3 != "" ];then
     date
 
     cd ~/swingbench/bin
-    ./oewizard  -dba admin -dbap $dbp -u soe -p soe -cl -cs //$db3/orcl -ts SOE -scale 32 -create -tc 8 -v 
+    ./oewizard  -dba admin -dbap $dbp -u soe -p soe -cl -cs //$db3/orcl -ts SOE -scale 16 -create -tc 8 -v 
     if [ $? -ne 0 ]; then
         echo "ERROR:  oewizard non zero exit code "
     fi
@@ -51,3 +51,10 @@ echo "Finished oewizard"
 date
 # 32GB ~ 3h x2
 # 32 GB 2h 16m
+#
+#delete
+#./oewizard  -dba admin -dbap $dbp -u soe -p soe -cl -cs //$db3/orcl -ts SOE -scale 16 drop
+#
+#./oewizard -scale 1 -cs //oracle12c/orcl -dbap manager -ts SOE1 -tc 32 -nopart -u soe1 -p soe1 -cl -df /home/oracle/app/oracle/oradata/ORCL/datafile/soe1.dbf
+#./oewizard -scale 5 -cs //oracle12c/orcl -dbap manager -ts SOE5 -tc 32 -nopart -u soe5 -p soe5 -cl -df /home/oracle/app/oracle/oradata/ORCL/datafile/soe5.dbf
+#./oewizard -scale 10 -cs //oracle12c/orcl -dbap manager -ts SOE10 -tc 32 -nopart -u soe10 -p soe10 -cl -df /home/oracle/app/oracle/oradata/ORCL/datafile/soe10.dbf
