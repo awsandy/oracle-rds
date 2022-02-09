@@ -138,5 +138,9 @@ sudo echo "PREFERRED=/usr/bin/mate-session" > /etc/sysconfig/desktop
 #rsp=$(aws ec2 describe-instances --filters "Name=instance-state-name,Values=running" "Name=tag:Oracle,Values=19c" | jq -r .Reservations[].Instances[].PrivateIpAddress)
 #echo "Server:  $rsp"
 #echo "$rsp oraclelinux" >> /etc/hosts
+echo "install chrome"
+sudo curl https://intoli.com/install-google-chrome.sh | bash
+echo "surf for lens"
 date
-
+# /usr/bin/google-chrome-stable
+echo "look in /usr/share/applications"
