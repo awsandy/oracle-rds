@@ -72,6 +72,7 @@ def main():
                 rgs = rgs[2:]
                 rgs = rgs[:-1]
                 azr = json.loads(rgs)
+                print(chr(27) + "[2J")
                 print(json.dumps(azr, indent=4, separators=(',', ': ')))
             if 'NextShardIterator' in response:
                 next_shard_iters.append(response['NextShardIterator'])
