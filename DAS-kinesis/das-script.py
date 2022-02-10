@@ -9,7 +9,7 @@ from aws_encryption_sdk.identifiers import WrappingAlgorithm, EncryptionKeyType
 import boto3
 
 REGION_NAME = 'eu-west-2'                    # us-east-1
-RESOURCE_ID = 'db-UQRGQ3H4VMAWO3JOVKCTAAQVJ4'      # cluster-ABCD123456
+RESOURCE_ID = 'db-UQRGQ3H4VMAWO3JOVKCTAAQVJ4' 
 STREAM_NAME = 'aws-rds-das-' + RESOURCE_ID  # aws-rds-das-cluster-ABCD123456
 
 enc_client = aws_encryption_sdk.EncryptionSDKClient(commitment_policy=CommitmentPolicy.REQUIRE_ENCRYPT_ALLOW_DECRYPT)
@@ -66,7 +66,7 @@ def main():
                 payload_decoded = base64.b64decode(record_data['databaseActivityEvents'])
                 data_key_decoded = base64.b64decode(record_data['key'])
                 data_key_decrypt_result = kms.decrypt(CiphertextBlob=data_key_decoded,
-                                                      EncryptionContext={'aws:rds:dbc-id': RESOURCE_ID})
+                                                      EncryptionContext={'aws:rds:db-id': RESOURCE_ID})
                 print(decrypt_decompress(payload_decoded, data_key_decrypt_result['Plaintext']))
             if 'NextShardIterator' in response:
                 next_shard_iters.append(response['NextShardIterator'])
