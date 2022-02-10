@@ -79,6 +79,9 @@ wget -q https://s3.amazonaws.com/publicsctdownload/Fedora/aws-schema-conversion-
 echo "======= get oracle inst client"
 aws s3 cp s3://oracle-swingbench/clients/oracle-instantclient-basic-21.1.0.0.0-1.x86_64.rpm oracle-instantclient-basic-21.1.0.0.0-1.x86_64.rpm  --quiet
 echo "======= install oracle inst client"
+##
+###  Requires: oracle-instantclient19.14-basic >= 19.14.0.0.0
+##
 yum install -q -y oracle-instantclient-basic-21.1.0.0.0-1.x86_64.rpm
 chown oracle.oinstall /software/*
 #chmod -R 755 /software/*.sh
