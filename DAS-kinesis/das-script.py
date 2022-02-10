@@ -71,7 +71,7 @@ def main():
             if 'NextShardIterator' in response:
                 next_shard_iters.append(response['NextShardIterator'])
         shard_iters = next_shard_iters
-        print("Done")
+        #print("Done")
     
 
 
