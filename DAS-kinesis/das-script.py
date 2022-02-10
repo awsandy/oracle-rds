@@ -55,7 +55,7 @@ def main():
         shard_iter_response = kinesis.get_shard_iterator(StreamName=STREAM_NAME, ShardId=shard['ShardId'],
                                                          ShardIteratorType='LATEST')
         shard_iters.append(shard_iter_response['ShardIterator'])
-
+    print("Starting.....")   
     while len(shard_iters) > 0:
         next_shard_iters = []
         for shard_iter in shard_iters:
@@ -71,6 +71,9 @@ def main():
             if 'NextShardIterator' in response:
                 next_shard_iters.append(response['NextShardIterator'])
         shard_iters = next_shard_iters
+        print("Done")
+    
+
 
 
 if __name__ == '__main__':
