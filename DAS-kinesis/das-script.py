@@ -71,6 +71,7 @@ def main():
                 rgs=str(decrypt_decompress(payload_decoded, data_key_decrypt_result['Plaintext']))
                 rgs = rgs[2:]
                 rgs = rgs[:-1]
+                print("rgs=",rgs)
                 print(json.dumps(rgs, indent=4, separators=(',', ': ')))
             if 'NextShardIterator' in response:
                 next_shard_iters.append(response['NextShardIterator'])
