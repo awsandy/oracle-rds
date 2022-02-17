@@ -115,11 +115,12 @@ echo "======= install oracle inst basic client"
 sudo  yum install -y oracle-instantclient-basic-21.1.0.0.0-1.x86_64.rpm
 #sudo  yum install -y oracle-instantclient19.14-sqlplus-19.14.0.0.0-1.x86_64.rpm
 
-sudo chown oracle.oinstall oracle-cloud9-install.sh
-sudo chmod 755 oracle-cloud9-install.sh
+sudo cp oracle-cloud9-install.sh /home/oracle/oracle-cloud9-install.sh
+sudo chmod 755 /home/oracle/oracle-cloud9-install.sh
+sudo chown oracle.oinstall /home/oracle/oracle-cloud9-install.sh
 
 
-sudo -u oracle -- sh -c "/home/ec2-user/environment/oracle-rds/oracle-cloud9-install.sh"
+sudo -u oracle -- sh -c "/home/oracle/oracle-cloud9-install.sh"
 #rsp=$(aws ec2 describe-instances --filters "Name=instance-state-name,Values=running" "Name=tag:Oracle,Values=19c" | jq -r .Reservations[].Instances[].PrivateIpAddress)
 #echo "Server:  $rsp"
 #echo "$rsp oraclelinux" >> /etc/hosts
