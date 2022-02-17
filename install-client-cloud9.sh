@@ -1,7 +1,7 @@
 #!/bin/bash
 set +x
 cd ~/environment
-sudo yum install -q -y wget smartmontools deltarpm jq nmap
+sudo yum install -q -y smartmontools deltarpm jq nmap
 sudo yum reinstall python3-pip -y
 # Increase the disk size to 32GB
 # ------  resize OS disk -----------
