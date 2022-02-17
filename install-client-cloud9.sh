@@ -1,5 +1,4 @@
 #!/bin/bash
-
 set +x
 cd ~/environment
 sudo yum install -q -y wget smartmontools deltarpm jq nmap
@@ -56,11 +55,10 @@ sudo ./aws/install
 rm -f awscliv2.zip
 
 date
-echo "======= X11 mate desktop install ..."
+echo "======= X11 mate desktop install - this takes a few minutes ..."
 sudo amazon-linux-extras install -y mate-desktop1.x > /dev/null
-sudo echo "PREFERRED=/usr/bin/mate-session" > /etc/sysconfig/desktop
 
-sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+sudo yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm -q
 
 sudo systemctl set-default graphical.target
 echo "======= xrdp"
@@ -68,7 +66,7 @@ sudo yum -y install xrdp tigervnc-server -q 2> /dev/null
 #yum -y install xrdp
 sudo systemctl start xrdp
 sudo systemctl enable xrdp
-sudo netstat -antup | grep xrdp
+sudo netstat -antup | grep 3389
 
 echo "X11 stuff again ......"
 sudo amazon-linux-extras install -y mate-desktop1.x
@@ -88,8 +86,6 @@ wget -O vscode.rpm https://go.microsoft.com/fwlink/?LinkID=760867 -q
 sudo yum install vscode.rpm  -y -q 2> /dev/null
 sudo cat /etc/sysconfig/desktop
 
-
-sudo yum install -q -y wget smartmontools deltarpm jq nmap
 
 echo "======= yum compat"
 sudo yum install -y compat-libcap1.x86_64 gcc.x86_64 gcc-c++.x86_64 glibc.i686 glibc.x86_64 glibc-devel.i686 glibc-devel.x86_64 ksh compat-libstdc++-33 libgcc.i686 libstdc++.i686 libstdc++-devel.i686 libstdc++-devel.x86_64 libXi.i686 libXi.x86_64 libXtst.i686 libXtst.x86_64
