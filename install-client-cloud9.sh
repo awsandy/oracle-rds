@@ -104,8 +104,8 @@ sudo rpm --import https://yum.corretto.aws/corretto.key
 sudo curl -L -o /etc/yum.repos.d/corretto.repo https://yum.corretto.aws/corretto.repo
 sudo yum install -y java-15-amazon-corretto-devel -q
 
-echo "======= Oracle software get to /software"
-cd /home/ec2-user/environment
+echo "======= Oracle software get to /home/oracle/software"
+cd /home/oracle
 mkdir software
 cd software
 echo "======= swingbench get to ~/environment/software"
@@ -121,9 +121,11 @@ echo "======= install oracle inst basic client"
 sudo  yum install -y oracle-instantclient-basic-21.1.0.0.0-1.x86_64.rpm
 sudo  yum install -y oracle-instantclient19.14-sqlplus-19.14.0.0.0-1.x86_64.rpm
 unzip -qq swingbenchlatest.zip
-sudo chown -R oracle.oinstall *
-sudo chmod -R 755 /software/*.sh
+sudo chown oracle.oinstall oracle-cloud9-install.sh
+sudo chmod 755 oracle-cloud9-install.sh
 
+
+sudo -u oracle -- sh -c "/home/ec2-user/environment/oracle-rds/oracle-cloud9-install.sh"
 #rsp=$(aws ec2 describe-instances --filters "Name=instance-state-name,Values=running" "Name=tag:Oracle,Values=19c" | jq -r .Reservations[].Instances[].PrivateIpAddress)
 #echo "Server:  $rsp"
 #echo "$rsp oraclelinux" >> /etc/hosts
