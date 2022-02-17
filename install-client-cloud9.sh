@@ -104,23 +104,17 @@ sudo rpm --import https://yum.corretto.aws/corretto.key
 sudo curl -L -o /etc/yum.repos.d/corretto.repo https://yum.corretto.aws/corretto.repo
 sudo yum install -y java-15-amazon-corretto-devel -q
 
-echo "======= Oracle software get to /home/oracle/software"
-cd /home/oracle
-mkdir software
-cd software
-echo "======= swingbench get to ~/environment/software"
-wget -q https://github.com/domgiles/swingbench-public/releases/download/production/swingbenchlatest.zip
 #echo "======= SCT get to /software"
 #wget -q https://s3.amazonaws.com/publicsctdownload/Fedora/aws-schema-conversion-tool-1.0.latest.zip
 #wget -q https://www.oracle.com/database/technologies/jdbc-ucp-122-downloads.html
 echo "======= get oracle inst client & sqlplus"
 #aws s3 cp s3://oracle-swingbench/clients/oracle-instantclient-basic-21.1.0.0.0-1.x86_64.rpm oracle-instantclient-basic-21.1.0.0.0-1.x86_64.rpm  --quiet
 aws s3 cp s3://oracle-swingbench/clients/oracle-instantclient-basic-21.1.0.0.0-1.x86_64.rpm oracle-instantclient-basic-21.1.0.0.0-1.x86_64.rpm
-aws s3 cp s3://oracle-swingbench/clients/oracle-instantclient19.14-sqlplus-19.14.0.0.0-1.x86_64.rpm oracle-instantclient19.14-sqlplus-19.14.0.0.0-1.x86_64.rpm
+#aws s3 cp s3://oracle-swingbench/clients/oracle-instantclient19.14-sqlplus-19.14.0.0.0-1.x86_64.rpm oracle-instantclient19.14-sqlplus-19.14.0.0.0-1.x86_64.rpm
 echo "======= install oracle inst basic client"
 sudo  yum install -y oracle-instantclient-basic-21.1.0.0.0-1.x86_64.rpm
-sudo  yum install -y oracle-instantclient19.14-sqlplus-19.14.0.0.0-1.x86_64.rpm
-unzip -qq swingbenchlatest.zip
+#sudo  yum install -y oracle-instantclient19.14-sqlplus-19.14.0.0.0-1.x86_64.rpm
+
 sudo chown oracle.oinstall oracle-cloud9-install.sh
 sudo chmod 755 oracle-cloud9-install.sh
 
