@@ -105,14 +105,15 @@ sudo yum install -y java-15-amazon-corretto-devel -q
 #wget -q https://s3.amazonaws.com/publicsctdownload/Fedora/aws-schema-conversion-tool-1.0.latest.zip
 #wget -q https://www.oracle.com/database/technologies/jdbc-ucp-122-downloads.html
 echo "======= get oracle inst client & sqlplus"
-wget https://download.oracle.com/otn_software/linux/instantclient/1914000/oracle-instantclient19.14-basiclite-19.14.0.0.0-1.x86_64.rpm 
+wget https://download.oracle.com/otn_software/linux/instantclient/1914000/oracle-instantclient19.14-basic-19.14.0.0.0-1.x86_64.rpm
+#wget https://download.oracle.com/otn_software/linux/instantclient/1914000/oracle-instantclient19.14-basiclite-19.14.0.0.0-1.x86_64.rpm 
 wget https://download.oracle.com/otn_software/linux/instantclient/1914000/oracle-instantclient19.14-sqlplus-19.14.0.0.0-1.x86_64.rpm
 wget https://download.oracle.com/otn_software/linux/instantclient/1914000/oracle-instantclient19.14-tools-19.14.0.0.0-1.x86_64.rpm 
 echo "======= install oracle inst basic client"
 sudo  yum install -y oracle-instantclient*x86_64.rpm
 
 
-sudo cp oracle-cloud9-install.sh /home/oracle/oracle-cloud9-install.sh
+sudo cp ~/environment/oracle-rds/oracle-cloud9-install.sh /home/oracle/oracle-cloud9-install.sh
 sudo chmod 755 /home/oracle/oracle-cloud9-install.sh
 sudo chown oracle.oinstall /home/oracle/oracle-cloud9-install.sh
 
