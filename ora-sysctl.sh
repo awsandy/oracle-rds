@@ -1,4 +1,4 @@
-pw=$(date | base64 | head -c${1:-16};echo;)
+pw=$(date | base64 | head -c${1:-32};echo;)
 echo $pw > /home/oracle/.oracreds && chmod 600 /home/oracle/.oracreds
 echo -e "${pw}\n${pw}" | passwd oracle
 echo "fs.aio-max-nr = 1048576" >> /etc/sysctl.conf
