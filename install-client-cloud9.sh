@@ -53,25 +53,22 @@ curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip
 unzip -qq awscliv2.zip
 sudo ./aws/install
 rm -f awscliv2.zip
+rm -rf aws
 
 date
-echo "======= X11 mate desktop install - this takes a few minutes ..."
-sudo amazon-linux-extras install -y mate-desktop1.x > /dev/null
+
 
 sudo yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm -q
-
-sudo systemctl set-default graphical.target
 echo "======= xrdp"
 sudo yum -y install xrdp tigervnc-server -q 2> /dev/null
-#yum -y install xrdp
+echo "======= X11 mate desktop install - this takes a few minutes ..."
+sudo amazon-linux-extras install -y mate-desktop1.x > /dev/null
+echo "PREFERRED=/usr/bin/mate-session" | sudo tee -a /etc/sysconfig/desktop
+sudo systemctl set-default graphical.target
 sudo systemctl start xrdp
 sudo systemctl enable xrdp
 sudo netstat -antup | grep 3389
 
-echo "X11 stuff again ......"
-sudo amazon-linux-extras install -y mate-desktop1.x
-echo "PREFERRED=/usr/bin/mate-session" > desktop
-sudo cp desktop /etc/sysconfig/desktop
 echo "install chrome"
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm -q
 sudo yum install google-chrome-stable_current_*.rpm -y -q 
@@ -101,28 +98,27 @@ sudo rpm --import https://yum.corretto.aws/corretto.key
 sudo curl -L -o /etc/yum.repos.d/corretto.repo https://yum.corretto.aws/corretto.repo
 sudo yum install -y java-15-amazon-corretto-devel -q
 
-#echo "======= SCT get to /software"
+#echo "======= SCT get"
 #wget -q https://s3.amazonaws.com/publicsctdownload/Fedora/aws-schema-conversion-tool-1.0.latest.zip
 #wget -q https://www.oracle.com/database/technologies/jdbc-ucp-122-downloads.html
 echo "======= get oracle inst client & sqlplus"
-wget https://download.oracle.com/otn_software/linux/instantclient/1914000/oracle-instantclient19.14-basic-19.14.0.0.0-1.x86_64.rpm
+wget https://download.oracle.com/otn_software/linux/instantclient/1914000/oracle-instantclient19.14-basic-19.14.0.0.0-1.x86_64.rpm -q
 #wget https://download.oracle.com/otn_software/linux/instantclient/1914000/oracle-instantclient19.14-basiclite-19.14.0.0.0-1.x86_64.rpm 
-wget https://download.oracle.com/otn_software/linux/instantclient/1914000/oracle-instantclient19.14-sqlplus-19.14.0.0.0-1.x86_64.rpm
-wget https://download.oracle.com/otn_software/linux/instantclient/1914000/oracle-instantclient19.14-tools-19.14.0.0.0-1.x86_64.rpm 
-echo "======= install oracle inst basic client"
-sudo  yum install -y oracle-instantclient*x86_64.rpm
+wget https://download.oracle.com/otn_software/linux/instantclient/1914000/oracle-instantclient19.14-sqlplus-19.14.0.0.0-1.x86_64.rpm -q
+wget https://download.oracle.com/otn_software/linux/instantclient/1914000/oracle-instantclient19.14-tools-19.14.0.0.0-1.x86_64.rpm -q
+echo "======= install oracle inst client"
+sudo  yum install -y oracle-instantclient*x86_64.rpm -q
 
 
 sudo cp ~/environment/oracle-rds/oracle-cloud9-install.sh /home/oracle/oracle-cloud9-install.sh
 sudo chmod 755 /home/oracle/oracle-cloud9-install.sh
 sudo chown oracle.oinstall /home/oracle/oracle-cloud9-install.sh
 
-
 sudo -u oracle -- sh -c "/home/oracle/oracle-cloud9-install.sh"
-#rsp=$(aws ec2 describe-instances --filters "Name=instance-state-name,Values=running" "Name=tag:Oracle,Values=19c" | jq -r .Reservations[].Instances[].PrivateIpAddress)
-#echo "Server:  $rsp"
-#echo "$rsp oraclelinux" >> /etc/hosts
 
+rdph=$(aws rds describe-db-instances --query DBInstances[].Endpoint.Address | jq -r .[])
+rsp=$(host $rdph | awk '{print $4}')
+echo "Server:  $rsp" | sudo tee -a /etc/hosts
 
 echo "look in /usr/share/applications"
 echo "Instance ID = $INSTANCE_ID"
