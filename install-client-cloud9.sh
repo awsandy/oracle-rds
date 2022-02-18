@@ -118,7 +118,7 @@ sudo -u oracle -- sh -c "/home/oracle/oracle-cloud9-install.sh"
 
 rdph=$(aws rds describe-db-instances --query DBInstances[].Endpoint.Address | jq -r .[])
 rsp=$(host $rdph | awk '{print $4}')
-echo "Server:  $rsp" | sudo tee -a /etc/hosts
-
+echo "$rsp oraclelinux" | sudo tee -a /etc/hosts
+sudo more /home/oracle/.oracreds
 echo "look in /usr/share/applications"
 echo "Instance ID = $INSTANCE_ID"
