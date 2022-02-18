@@ -16,7 +16,7 @@ chown -R oracle.oinstall *
 #rsp=$(aws ec2 describe-instances --filters "Name=instance-state-name,Values=running" "Name=tag:Oracle,Values=19c" | jq -r .Reservations[].Instances[].PrivateIpAddress)
 rdph=$(aws rds describe-db-instances --query DBInstances[].Endpoint.Address | jq -r .[])
 rsp=$(host $rdph | awk '{print $4}')
-echo "Server:  $rsp"
-#echo "$rsp oraclelinux" >> /etc/hosts
+echo "Server:  $rsp" | sudo tee -a /etc/hosts
+
 
 
